@@ -48,6 +48,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from "./app.component";
 import { StepDeparturesComponent } from "./step-departures/step-departures.component";
+import { PromoBadgeComponent } from './promo-badge/promo-badge.component';
+import { CountdownModule } from 'ngx-countdown';
 
 
 @NgModule({
@@ -95,10 +97,11 @@ import { StepDeparturesComponent } from "./step-departures/step-departures.compo
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    SimplebarAngularModule
+    SimplebarAngularModule,
+    CountdownModule
   ],
   entryComponents: [AppComponent],
-  declarations: [AppComponent, StepDeparturesComponent],
+  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent],
   bootstrap: [AppComponent],
   providers: []
 })

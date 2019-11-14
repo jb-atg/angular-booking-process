@@ -4,8 +4,8 @@
 	<mat-toolbar [class.open]="!collapsed" [color]="collapsed?'primary':''">
 
 		<ng-container *ngIf="collapsed">
+      				<app-promo-badge></app-promo-badge>
 			<div class="inner-toolbar">
-				<div class="mat-display-2">Fly Free*</div>
 			</div>
 			<button mat-flat-button color="light" (click)="collapsed = !collapsed">Reserve Your Place</button>
 		</ng-container>
