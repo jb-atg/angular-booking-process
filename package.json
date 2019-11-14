@@ -23,7 +23,6 @@
     "ngx-countdown": "^8.0.2",
     "ngx-drag-scroll": "^7.4.3",
     "rxjs": "^6.5.3",
-    "simplebar-angular": "^1.0.13",
     "web-animations-js": "^2.3.2",
     "zone.js": "^0.10.2"
   },

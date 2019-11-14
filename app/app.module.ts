@@ -1,7 +1,6 @@
 
 import "../polyfills";
-import { SimplebarAngularModule } from 'simplebar-angular';
-
+import { DragScrollModule } from 'ngx-drag-scroll';
 import { CdkTableModule } from "@angular/cdk/table";
 import { CdkTreeModule } from "@angular/cdk/tree";
 import { HttpClientModule } from "@angular/common/http";
@@ -98,8 +97,8 @@ import { DepartureMonthComponent } from './step-departures/departure-month/depar
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    SimplebarAngularModule,
-    CountdownModule
+    CountdownModule,
+    DragScrollModule
   ],
   entryComponents: [AppComponent],
   declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent],
