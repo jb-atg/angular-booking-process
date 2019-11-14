@@ -7,60 +7,21 @@
 	<div *ngIf="!collapsed">
 		<button *ngIf="!minimised"  class="minimise-button" mat-button (click)="minimised = !minimised"><i class="material-icons">keyboard_arrow_up</i>View Tour</button>
 		<button *ngIf="minimised" class="minimise-button" mat-flat-button (click)="minimised = !minimised" color="primary"><i class="material-icons">keyboard_arrow_down</i>Back to Booking</button>
-    <h1 class="mat-display-1">Reserve Your Place</h1>
+		<h1 class="mat-display-2">Reserve Your Place</h1>
 		<mat-horizontal-stepper [linear]="true" #stepper>
 			<mat-step>
-				<mat-list>
-					<mat-list-item>
-						<form>
-							<mat-form-field>
-								<input matInput placeholder="Placeholder">
-      </mat-form-field>
-						</form>
-					</mat-list-item>
-
-					<mat-list-item>
-						<button mat-raised-button color="primary">Primary</button>
-					</mat-list-item>
-
-					<mat-list-item>
-						<button mat-button color="accent">Accent</button>
-					</mat-list-item>
-
-					<mat-list-item>
-						<button mat-icon-button><mat-icon>home</mat-icon></button>
-					</mat-list-item>
-
-					<mat-list-item>
-						<legend>Options:</legend>
-						<mat-list-item>
-							<mat-radio-button value="1">Option 1</mat-radio-button>
-						</mat-list-item>
-						<mat-list-item>
-							<mat-radio-button value="2">Option 2</mat-radio-button>
-						</mat-list-item>
-					</mat-list-item>
-
-					<mat-list-item>
-						<mat-spinner [diameter]="36"></mat-spinner>
-					</mat-list-item>
-
-					<mat-list-item>
-						<mat-chip-list>
-							<mat-chip color="warn" selected>Chip</mat-chip>
-						</mat-chip-list>
-					</mat-list-item>
-
-					<mat-list-item>
-						<mat-slider></mat-slider>
-					</mat-list-item>
-				</mat-list>
+				<ng-template matStepLabel> <span class="mat-title">Choose a Departure Date</span> </ng-template>
 			</mat-step>
 			<mat-step>
-
+				<ng-template matStepLabel> <span class="mat-title">Trip Details</span></ng-template>
 			</mat-step>
-			<mat-step>
 
+			<mat-step>
+				<ng-template matStepLabel><span class="mat-title">Passenger Details</span></ng-template>
+			</mat-step>
+
+			<mat-step>
+				<ng-template matStepLabel><span class="mat-title">Booking Complete</span></ng-template>
 			</mat-step>
 		</mat-horizontal-stepper>
 	</div>
