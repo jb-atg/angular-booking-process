@@ -1,4 +1,4 @@
-import {Component, HostBinding} from '@angular/core';
+import {Component, HostBinding,ViewChild} from '@angular/core';
 
 /**
  * @title Basic Inputs
@@ -11,7 +11,15 @@ import {Component, HostBinding} from '@angular/core';
 export class AppComponent {
 @HostBinding('class.collapsed') collapsed:boolean = true;
 @HostBinding('class.minimised') minimised:boolean = false;
+@ViewChild('stepper', {static: false}) stepper:any;
 
+nextStep() {
+this.stepper.next();
+}
+
+previousStep() {
+this.stepper.previous();
+}
 
 }
 

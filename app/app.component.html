@@ -17,16 +17,12 @@
 			</div>
 
 			<div class="inner-toolbar pl-1 pr-1" innerAlign="spaceBetween center">
-				<button mat-flat-button color="warn" (click)="collapsed = !collapsed">Cancel Booking</button>
+				<button mat-stroked-button color="warn" (click)="collapsed = !collapsed">Cancel Booking</button>
 
-        <div>
-          			<button mat-flat-button><i class="material-icons">navigate_before</i>Back</button>
-                <button mat-raised-button>Next <i class="material-icons">navigate_next</i></button>
+        <div innerAlign="middle right">
+          			<button mat-button><i class="material-icons" (click)="previousStep()">navigate_before</i>Back</button>
+                <button mat-stroked-button color="primary" (click)="nextStep()">Next <i class="material-icons">navigate_next</i></button>
         </div>
-				<mat-button-toggle-group>
-					<mat-button-toggle class="mat-flat-button mat-button-base"><i class="material-icons">navigate_before</i>Back</mat-button-toggle>
-					<mat-button-toggle class="mat-flat-button mat-button-base">Next <i class="material-icons">navigate_next</i></mat-button-toggle>
-				</mat-button-toggle-group>
 			</div>
 		</ng-container>
 	</mat-toolbar>
@@ -34,9 +30,9 @@
 	<div *ngIf="!collapsed">
 		<button *ngIf="!minimised"  class="minimise-button" mat-button (click)="minimised = !minimised"><i class="material-icons">keyboard_arrow_up</i>View Tour</button>
 		<button *ngIf="minimised" class="minimise-button" mat-flat-button (click)="minimised = !minimised" color="primary"><i class="material-icons">keyboard_arrow_down</i>Back to Booking</button>
-		<mat-horizontal-stepper [linear]="true" #stepper>
+		<mat-horizontal-stepper [linear]="true" #stepper >
 			<mat-step>
-				<ng-template matStepLabel> <span class="mat-title">Choose a Departure Date</span> </ng-template>
+				<ng-template matStepLabel> <span class="mat-title">Select a Departure Date</span> </ng-template>
 				<app-step-departures data-simplebar></app-step-departures>
 			</mat-step>
 			<mat-step>
