@@ -23,6 +23,8 @@ body {
 
 app-component {
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
   .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
