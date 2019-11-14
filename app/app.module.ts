@@ -50,6 +50,7 @@ import { AppComponent } from "./app.component";
 import { StepDeparturesComponent } from "./step-departures/step-departures.component";
 import { PromoBadgeComponent } from './promo-badge/promo-badge.component';
 import { CountdownModule } from 'ngx-countdown';
+import { DepartureMonthComponent } from './step-departures/departure-month/departure-month.component';
 
 
 @NgModule({
@@ -101,7 +102,7 @@ import { CountdownModule } from 'ngx-countdown';
     CountdownModule
   ],
   entryComponents: [AppComponent],
-  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent],
+  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent],
   bootstrap: [AppComponent],
   providers: []
 })

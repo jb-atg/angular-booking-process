@@ -45,6 +45,13 @@ background:#fefefe;
     top:calc(-2rem - 18px);
     color:#fff;
   }
+
+  .cancel-button {
+    position:absolute;
+    top:calc(-2rem - 18px);
+    right:0;
+    background:#fff;
+  }
 }
 
 &.minimised {
@@ -63,6 +70,7 @@ mat-toolbar {
   &.open {
  background: #fff;
     padding: 1rem;
+    padding-bottom:0;
     height: auto;
     transition-delay:0s;
 }

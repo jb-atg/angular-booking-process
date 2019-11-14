@@ -1,7 +1,11 @@
 :host() {
   width:100%;
-     height: calc(100vh - 264px);
+  height: calc(100vh - 202px);
   display:block;
-  overflow:hidden;
-  background:red;
+  overflow-y:scroll;
+
+  ngx-simplebar {
+  width:100%;
+  height: calc(100vh - 202px);
+  }
 }

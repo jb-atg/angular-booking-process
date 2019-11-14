@@ -12,13 +12,11 @@
 
 
 		<ng-container *ngIf="!collapsed">
-			<div>
 				<div class="mat-display-2">Book Now</div>
-				<div class="mat-title">Magnificent Europe - EUMC15</div>
-			</div>
+				<div class="mat-title pl-1">15 Day Magnificent Europe Amsterdam to Budapest
+</div>
 
-			<div class="inner-toolbar pl-1 pr-1" innerAlign="spaceBetween center">
-				<button mat-stroked-button color="warn" (click)="collapsed = !collapsed">Cancel Booking</button>
+			<div class="inner-toolbar pl-1 pr-1" innerAlign="middle right">
 
         <div innerAlign="middle right">
           			<button mat-button><i class="material-icons" (click)="previousStep()">navigate_before</i>Back</button>
@@ -31,6 +29,7 @@
 	<div *ngIf="!collapsed">
 		<button *ngIf="!minimised"  class="minimise-button" mat-button (click)="minimised = !minimised"><i class="material-icons">keyboard_arrow_up</i>View Tour</button>
 		<button *ngIf="minimised" class="minimise-button" mat-flat-button (click)="minimised = !minimised" color="primary"><i class="material-icons">keyboard_arrow_down</i>Back to Booking</button>
+    <button mat-stroked-button class="cancel-button mr-1" color="warn" (click)="collapsed = !collapsed">Cancel Booking</button>
 		<mat-horizontal-stepper [linear]="true" #stepper >
 			<mat-step>
 				<ng-template matStepLabel> <span class="mat-title">Select a Departure Date</span> </ng-template>
