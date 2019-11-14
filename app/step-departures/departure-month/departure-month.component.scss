@@ -5,7 +5,13 @@ grid-template-rows: 1fr;
 grid-column-gap: 16px;
 grid-row-gap: 0px;
 height:128px;
+background:rgba(#fff,.75);
 &.even {
-  background:#eee;
+  background:rgba(#eee,.75);
+}
+
+drag-scroll {
+  width:100%;
+  height:100%;
 }
 }

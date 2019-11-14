@@ -50,6 +50,7 @@ import { StepDeparturesComponent } from "./step-departures/step-departures.compo
 import { PromoBadgeComponent } from './promo-badge/promo-badge.component';
 import { CountdownModule } from 'ngx-countdown';
 import { DepartureMonthComponent } from './step-departures/departure-month/departure-month.component';
+import { DepartureSlotComponent } from './step-departures/departure-slot/departure-slot.component';
 
 
 @NgModule({
@@ -101,7 +102,7 @@ import { DepartureMonthComponent } from './step-departures/departure-month/depar
     DragScrollModule
   ],
   entryComponents: [AppComponent],
-  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent],
+  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent],
   bootstrap: [AppComponent],
   providers: []
 })
