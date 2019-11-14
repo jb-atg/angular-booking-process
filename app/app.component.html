@@ -1,19 +1,27 @@
 <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop" [class.cdk-overlay-backdrop-showing]="!collapsed"></div>
 
 <div class="content">
-	<div *ngIf="collapsed">
-		<button mat-flat-button (click)="collapsed = !collapsed" color="primary">Primary</button>
-	</div>
-	<div *ngIf="!collapsed">
-		<button *ngIf="!minimised"  class="minimise-button" mat-button (click)="minimised = !minimised"><i class="material-icons">keyboard_arrow_up</i>View Tour</button>
-		<button *ngIf="minimised" class="minimise-button" mat-flat-button (click)="minimised = !minimised" color="primary"><i class="material-icons">keyboard_arrow_down</i>Back to Booking</button>
-		<mat-toolbar class="open">
-			<div>
+	<mat-toolbar [class.open]="!collapsed" [color]="collapsed?'primary':''">
+
+		<ng-container *ngIf="collapsed">
+			<div class="inner-toolbar">
+				<div class="mat-display-2">Fly Free*</div>
+			</div>
+			<button mat-flat-button color="light" (click)="collapsed = !collapsed">Reserve Your Place</button>
+		</ng-container>
+
+		<ng-container *ngIf="!collapsed">
+			<div class="inner-toolbar">
 				<div class="mat-display-2">Reserve Your Place</div>
 				<div class="mat-title">Magnificent Europe - EUMC15</div>
 			</div>
-			<button mat-flat-button color="warn">Cancel Booking</button>
-		</mat-toolbar>
+			<button mat-flat-button color="warn" (click)="collapsed = !collapsed">Cancel Booking</button>
+		</ng-container>
+	</mat-toolbar>
+
+	<div *ngIf="!collapsed">
+		<button *ngIf="!minimised"  class="minimise-button" mat-button (click)="minimised = !minimised"><i class="material-icons">keyboard_arrow_up</i>View Tour</button>
+		<button *ngIf="minimised" class="minimise-button" mat-flat-button (click)="minimised = !minimised" color="primary"><i class="material-icons">keyboard_arrow_down</i>Back to Booking</button>
 		<mat-horizontal-stepper [linear]="true" #stepper>
 			<mat-step>
 				<ng-template matStepLabel> <span class="mat-title">Choose a Departure Date</span> </ng-template>

@@ -48,12 +48,19 @@ background:#fff;
 
 
 mat-toolbar { 
+    transition: all .4s cubic-bezier(.25,.8,.25,1);
+    transition-delay:.4s;
     border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   &.open {
  background: #fff;
     padding: 1rem;
     height: auto;
+    transition-delay:0s;
+}
+
+.inner-toolbar {
+    flex: 1 1 auto;
 }
 }
 
