@@ -1,7 +1,7 @@
 :host() {
   width:100%;
-     height: calc(100vh - 256px);
+     height: calc(100vh - 264px);
   display:block;
-  overflow-y:scroll;
+  overflow:hidden;
   background:red;
 }

@@ -11,15 +11,15 @@
 		<mat-horizontal-stepper [linear]="true" #stepper>
 			<mat-step>
 				<ng-template matStepLabel> <span class="mat-title">Choose a Departure Date</span> </ng-template>
-				<app-step-departures></app-step-departures>
-        <div innerAlign="right middle">
+				<app-step-departures data-simplebar></app-step-departures>
+        <div class="footer" innerAlign="right middle">
 				<button mat-button matStepperNext>Next</button>
         </div>
 			</mat-step>
 			<mat-step>
 				<ng-template matStepLabel> <span class="mat-title">Trip Details</span></ng-template>
         <app-step-departures></app-step-departures>
-				<div innerAlign="right middle">
+				<div class="footer" innerAlign="right middle">
 					<button mat-button matStepperPrevious>Back</button>
 					<button mat-button matStepperNext>Next</button>
 				</div>
@@ -28,7 +28,7 @@
 			<mat-step>
 				<ng-template matStepLabel><span class="mat-title">Passenger Details</span></ng-template>
         				<app-step-departures></app-step-departures>
-        	<div innerAlign="right middle">
+        	<div class="footer"  innerAlign="right middle">
 					<button mat-button matStepperPrevious>Back</button>
 					<button mat-button matStepperNext>Next</button>
 				</div>
@@ -37,7 +37,7 @@
 			<mat-step>
 				<ng-template matStepLabel><span class="mat-title">Booking Complete</span></ng-template>
         				<app-step-departures></app-step-departures>
-        	<div innerAlign="right middle">
+        	<div class="footer"  innerAlign="right middle">
 					<button mat-button matStepperPrevious>Back</button>
 					<button mat-button matStepperNext>Next</button>
 				</div>

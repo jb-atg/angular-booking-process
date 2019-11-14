@@ -1,6 +1,6 @@
 
 import "../polyfills";
-import 'simplebar'; 
+import { SimplebarAngularModule } from 'simplebar-angular';
 
 import { CdkTableModule } from "@angular/cdk/table";
 import { CdkTreeModule } from "@angular/cdk/tree";
@@ -94,7 +94,8 @@ import { StepDeparturesComponent } from "./step-departures/step-departures.compo
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    SimplebarAngularModule
   ],
   entryComponents: [AppComponent],
   declarations: [AppComponent, StepDeparturesComponent],
