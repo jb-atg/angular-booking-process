@@ -1,5 +1,8 @@
-
-<div class="month-label" innerAlign="center middle"><ng-content></ng-content></div>
-  <drag-scroll>
-    Big text goes here...
-  </drag-scroll>
+<div class="month-label" innerAlign="center middle">
+	<ng-content></ng-content>
+</div>
+<drag-scroll>
+	<ng-container *ngFor="let dep of departures; let even = even;" ;>
+    <app-departure-slot drag-scroll-item  [departure]="dep"></app-departure-slot>
+	</ng-container>
+</drag-scroll>
