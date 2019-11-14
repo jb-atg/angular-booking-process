@@ -47,6 +47,17 @@ background:#fff;
 }
 
 
+mat-toolbar { 
+    border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  &.open {
+ background: #fff;
+    padding: 1rem;
+    height: auto;
+}
+}
+
+
 .footer {
   height:48px;
   background:green;
