@@ -1,5 +1,7 @@
 
 import "../polyfills";
+import 'simplebar'; 
+
 import { CdkTableModule } from "@angular/cdk/table";
 import { CdkTreeModule } from "@angular/cdk/tree";
 import { HttpClientModule } from "@angular/common/http";

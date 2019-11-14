@@ -37,7 +37,10 @@ z-index: 1;
 background:#fff;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  padding:1rem;
+
+  .mat-display-2 {
+    padding:1rem;
+  }
 
   .minimise-button {
     position:absolute;
