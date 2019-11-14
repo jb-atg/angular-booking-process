@@ -7,7 +7,13 @@
 	<div *ngIf="!collapsed">
 		<button *ngIf="!minimised"  class="minimise-button" mat-button (click)="minimised = !minimised"><i class="material-icons">keyboard_arrow_up</i>View Tour</button>
 		<button *ngIf="minimised" class="minimise-button" mat-flat-button (click)="minimised = !minimised" color="primary"><i class="material-icons">keyboard_arrow_down</i>Back to Booking</button>
-		<h1 class="mat-display-2">Reserve Your Place</h1>
+    <div class="toolbar p-1" innerAlign="spaceBetween middle">
+    <div>
+    <div class="mat-display-2">Reserve Your Place</div>
+    <div class="mat-title">Magnificent Europe - EUMC15</div>
+    </div>
+      <button mat-flat-button color="warn">Cancel Booking</button>
+    </div>
 		<mat-horizontal-stepper [linear]="true" #stepper>
 			<mat-step>
 				<ng-template matStepLabel> <span class="mat-title">Choose a Departure Date</span> </ng-template>
