@@ -15,7 +15,7 @@ body {
   margin:0;
 
   iframe {
-    width:100vw;
+    width: calc(100vw - 4px);
     height:calc(100vh - 64px);
     position:relative;
   }
