@@ -225,7 +225,7 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   margin:0;
 }
 
-.mat-button-wrapper {
+.mat-button-wrapper, .mat-button-toggle-label-content {
   display: flex;
     align-items: center;
     justify-content: center;

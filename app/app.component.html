@@ -4,19 +4,30 @@
 	<mat-toolbar [class.open]="!collapsed" [color]="collapsed?'primary':''">
 
 		<ng-container *ngIf="collapsed">
-      				<app-promo-badge></app-promo-badge>
+			<app-promo-badge></app-promo-badge>
 			<div class="inner-toolbar">
 			</div>
 			<button mat-flat-button color="light" (click)="collapsed = !collapsed">Reserve Place <i class="material-icons">navigate_next</i></button>
 		</ng-container>
 
 		<ng-container *ngIf="!collapsed">
-			<div class="inner-toolbar">
+			<div>
 				<div class="mat-display-2">Book Now</div>
 				<div class="mat-title">Magnificent Europe - EUMC15</div>
 			</div>
 
-		<button mat-flat-button color="warn" (click)="collapsed = !collapsed">Cancel Booking</button>
+			<div class="inner-toolbar pl-1 pr-1" innerAlign="spaceBetween center">
+				<button mat-flat-button color="warn" (click)="collapsed = !collapsed">Cancel Booking</button>
+
+        <div>
+          			<button mat-flat-button><i class="material-icons">navigate_before</i>Back</button>
+                <button mat-raised-button>Next <i class="material-icons">navigate_next</i></button>
+        </div>
+				<mat-button-toggle-group>
+					<mat-button-toggle class="mat-flat-button mat-button-base"><i class="material-icons">navigate_before</i>Back</mat-button-toggle>
+					<mat-button-toggle class="mat-flat-button mat-button-base">Next <i class="material-icons">navigate_next</i></mat-button-toggle>
+				</mat-button-toggle-group>
+			</div>
 		</ng-container>
 	</mat-toolbar>
 
@@ -27,35 +38,20 @@
 			<mat-step>
 				<ng-template matStepLabel> <span class="mat-title">Choose a Departure Date</span> </ng-template>
 				<app-step-departures data-simplebar></app-step-departures>
-				<div class="step-nav" innerAlign="right middle">
-					<button mat-button matStepperNext>Next</button>
-				</div>
 			</mat-step>
 			<mat-step>
 				<ng-template matStepLabel> <span class="mat-title">Trip Details</span></ng-template>
 				<app-step-departures></app-step-departures>
-				<div class="step-nav" innerAlign="right middle">
-					<button mat-button matStepperPrevious>Back</button>
-					<button mat-button matStepperNext>Next</button>
-				</div>
 			</mat-step>
 
 			<mat-step>
 				<ng-template matStepLabel><span class="mat-title">Passenger Details</span></ng-template>
 				<app-step-departures></app-step-departures>
-				<div class="step-nav" innerAlign="right middle">
-					<button mat-button matStepperPrevious>Back</button>
-					<button mat-button matStepperNext>Next</button>
-				</div>
 			</mat-step>
 
 			<mat-step>
 				<ng-template matStepLabel><span class="mat-title">Booking Complete</span></ng-template>
 				<app-step-departures></app-step-departures>
-				<div class="step-nav" innerAlign="right middle">
-					<button mat-button matStepperPrevious>Back</button>
-					<button mat-button matStepperNext>Next</button>
-				</div>
 			</mat-step>
 		</mat-horizontal-stepper>
 	</div>
