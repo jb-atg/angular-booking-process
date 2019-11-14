@@ -1,7 +1,7 @@
 <div class="month-label" innerAlign="center middle">
 	<ng-content></ng-content>
 </div>
-<drag-scroll>
+<drag-scroll [drag-scroll-y-disabled]="true">
 	<ng-container *ngFor="let dep of departures; let even = even;" ;>
     <app-departure-slot drag-scroll-item  [departure]="dep"></app-departure-slot>
 	</ng-container>

@@ -6,24 +6,70 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./departure-month.component.scss"]
 })
 export class DepartureMonthComponent implements OnInit {
-  @Input() month:number;
+  @Input() month: number;
+  @Input() filters: any;
   departures = [
-    { start:new Date(2020, this.month, this.dayGen(1, 15), 0,0,0,0), end:new Date(2020, this.month, this.dayGen(15, 29), 0,0,0,0),},
-    { start:new Date(2020, this.month, this.dayGen(1, 15), 0,0,0,0), end:new Date(2020, this.month, this.dayGen(15, 29), 0,0,0,0),},
-    { start:new Date(2020, this.month, this.dayGen(1, 15), 0,0,0,0), end:new Date(2020, this.month, this.dayGen(15, 29), 0,0,0,0),},
-    { start:new Date(2020, this.month, this.dayGen(1, 15), 0,0,0,0), end:new Date(2020, this.month, this.dayGen(15, 29), 0,0,0,0),},
-    { start:new Date(2020, this.month, this.dayGen(1, 15), 0,0,0,0), end:new Date(2020, this.month, this.dayGen(15, 29), 0,0,0,0),},
-    { start:new Date(2020, this.month, this.dayGen(1, 15), 0,0,0,0), end:new Date(2020, this.month, this.dayGen(15, 29), 0,0,0,0),},
-    { start:new Date(2020, this.month, this.dayGen(1, 15), 0,0,0,0), end:new Date(2020, this.month, this.dayGen(15, 29), 0,0,0,0),},
-    { start:new Date(2020, this.month, this.dayGen(1, 15), 0,0,0,0), end:new Date(2020, this.month, this.dayGen(15, 29), 0,0,0,0),},
-    { start:new Date(2020, this.month, this.dayGen(1, 15), 0,0,0,0), end:new Date(2020, this.month, this.dayGen(15, 29), 0,0,0,0),},
+    {
+      start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+    },
+    {
+      start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+    },
+    {
+      start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+    },
+    {
+      start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+    },
+    {
+      start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+    },
+    {
+      start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+    },
+    {
+      start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+    },
+    {
+      start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+    },
+    {
+      start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+    }
   ];
 
   constructor() {}
 
   ngOnInit() {}
 
-  dayGen(min, max) { // min and max included 
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+  dayGen(min, max) {
+    // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  inRange(startDate, endDate) {
+    let filterStartDate = this.filters.date.startDate;
+    let filterEndDate = this.filters.date.endDate;
+
+    // Illustration:
+    //
+    // filterStartDate                      filterEndDate
+    // v                                        v
+    // #----------------------------------------#
+    //
+    //         #----------------------#
+    //         ^                      ^
+    //         startDate              endDate
+
+    return startDate >= filterStartDate && endDate <= filterEndDate;
+  }
 }
