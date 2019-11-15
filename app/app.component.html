@@ -32,21 +32,21 @@
     <button mat-stroked-button class="cancel-button mr-1" color="warn" (click)="collapsed = !collapsed">Cancel Booking</button>
 		<mat-horizontal-stepper [linear]="true" #stepper >
 			<mat-step>
-				<ng-template matStepLabel> <span class="mat-title">Select a Departure Date</span> </ng-template>
+				<ng-template matStepLabel> <span class="mat-title step-title">Select a Departure Date</span> </ng-template>
 				<app-step-departures data-simplebar></app-step-departures>
 			</mat-step>
 			<mat-step>
-				<ng-template matStepLabel> <span class="mat-title">Trip Details</span></ng-template>
+				<ng-template matStepLabel> <span class="mat-title step-title">Trip Details</span></ng-template>
 				<app-step-departures></app-step-departures>
 			</mat-step>
 
 			<mat-step>
-				<ng-template matStepLabel><span class="mat-title">Passenger Details</span></ng-template>
+				<ng-template matStepLabel><span class="mat-title step-title">Passenger Details</span></ng-template>
 				<app-step-departures></app-step-departures>
 			</mat-step>
 
 			<mat-step>
-				<ng-template matStepLabel><span class="mat-title">Booking Complete</span></ng-template>
+				<ng-template matStepLabel><span class="mat-title step-title">Booking Complete</span></ng-template>
 				<app-step-departures></app-step-departures>
 			</mat-step>
 		</mat-horizontal-stepper>
