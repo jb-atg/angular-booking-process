@@ -5,7 +5,7 @@
 				<i class="material-icons">filter_list_alt</i>
 				<span class="mat-subheading-1 pr-1">Filters</span>
 			</div>
-			<mat-form-field drag-scroll-item appearance="outline" class="pr-1">
+			<mat-form-field appearance="outline" class="pr-1">
 				<mat-label>Departure Date</mat-label>
 				<input matInput
                    placeholder="Choose a date"
@@ -15,7 +15,7 @@
 				<sat-datepicker-toggle matSuffix [for]="picker2"></sat-datepicker-toggle>
 			</mat-form-field>
 
-			<mat-form-field drag-scroll-item appearance="outline" class="pr-1">
+			<mat-form-field appearance="outline" class="pr-1">
 				<mat-label>Promotions</mat-label>
 				<mat-select [(ngModel)]="filters.promotions.selectedOptions" multiple>
 					<mat-option *ngFor="let  promo of filters.promotions.options" [value]="promo.value">
@@ -24,7 +24,7 @@
 				</mat-select>
 			</mat-form-field>
 
-			<mat-form-field drag-scroll-item appearance="outline" class="pr-1">
+			<mat-form-field appearance="outline" class="pr-1">
 				<mat-label>Bedding</mat-label>
 				<mat-select [(ngModel)]="filters.bedding.selectedOption">
 					<mat-option *ngFor="let bedding of filters.bedding.options" [value]="bedding.value">
@@ -33,7 +33,7 @@
 				</mat-select>
 			</mat-form-field>
 
-			<mat-form-field drag-scroll-item appearance="outline" class="pr-1">
+			<mat-form-field appearance="outline" class="pr-1">
 				<mat-label>Cabin</mat-label>
 				<mat-select [(ngModel)]="filters.cabins.selectedOptions" multiple>
 					<mat-option *ngFor="let cabin of filters.cabins.options" [value]="cabin.value">
@@ -42,7 +42,7 @@
 				</mat-select>
 			</mat-form-field>
 
-			<mat-form-field drag-scroll-item appearance="outline">
+			<mat-form-field appearance="outline">
 				<mat-label>Sort</mat-label>
 				<mat-select [(ngModel)]="filters.sort.selectedOption">
 					<mat-option *ngFor="let sortOption of filters.sort.options" [value]="sortOption.value">
