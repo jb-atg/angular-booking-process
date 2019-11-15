@@ -2,6 +2,11 @@
 display:block;
 width:250px;
 height:100%;
-padding:1rem;
+padding:1rem .5rem;
+
+mat-card {
+  padding:.5rem;
+  height: 128px;
+}
 
 }
