@@ -50,11 +50,11 @@ export class StepDeparturesComponent implements OnInit {
 
   filters = {
     date: { startDate: new Date(), endDate: new Date() },
-    promotions: { options: this.promotions, selectedOption: 1 },
+    promotions: { options: this.promotions, selectedOptions:undefined},
     travellers: { selectedOption: 2 },
-    bedding: [{ options: this.bedding, selectedOption: undefined }],
-    cabin: [{ options: this.cabins, selectedOption: undefined }],
-    sort: [{ options: this.sort, selectedOption: undefined }]
+    bedding: { options: this.bedding, selectedOption: undefined },
+    cabin: { options: this.cabins, selectedOptions: undefined },
+    sort: { options: this.sort, selectedOption: undefined }
   };
 
   constructor() {}
