@@ -5,10 +5,10 @@
 			<span class="mat-subheading-1 pr-1">Filters</span>
 		</div>
 		<mat-form-field appearance="outline">
-			<mat-label>Favorite food</mat-label>
-			<mat-select>
-				<mat-option *ngFor="let food of foods" [value]="food.value">
-					{{food.viewValue}}
+			<mat-label>Promotions</mat-label>
+			<mat-select multiple>
+				<mat-option *ngFor="let  promo of filters.promotions.options" [value]="promo.value">
+					{{promo.label}}
 				</mat-option>
 			</mat-select>
 		</mat-form-field>
