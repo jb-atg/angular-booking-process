@@ -29,15 +29,32 @@ export class StepDeparturesComponent implements OnInit {
   bedding = [
     { value: 1, label: "Twin" },
     { value: 2, label: "Double" },
-    { value: 3, label: "Single" },
-    { value: 4, label: "Fly Business Class From $3,995pp*" },
-    { value: 5, label: "50% Off Solo Supplement*" }
+    { value: 3, label: "Single" }
   ];
+
+  cabins = [
+    { value: 1, label: "B+" },
+    { value: 1, label: "C" },
+    { value: 1, label: "CC" },
+    { value: 1, label: "D" },
+    { value: 1, label: "DD" },
+    { value: 1, label: "E" },
+    { value: 1, label: "EE" },
+    { value: 1, label: "T" }
+  ];
+
+  
+  sort = [
+    { value: 1, label: "Twin" },
+    { value: 2, label: "Double" },
+    { value: 3, label: "Single" }
+  ];
+
 
   filters = {
     date: { startDate: new Date(), endDate: new Date() },
     promotions: { options: this.options, selectedOption: 1 },
-    travellers: { options: this.options, selectedOption: 1 },
+    travellers: { selectedOption: 2 },
     bedding: [{ options: this.options, selectedOption: undefined }],
     cabin: [{ options: this.options, selectedOption: undefined }],
     sort: [{ options: this.options, selectedOption: undefined }]
