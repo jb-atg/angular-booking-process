@@ -11,39 +11,102 @@ export class DepartureMonthComponent implements OnInit {
   departures = [
     {
       start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
-      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0),
+      isInRange: false,
+      promotions: [],
+      travellers: [],
+      bedding: [],
+      cabin: [],
+      active: false,
+      filters: this.filters
     },
     {
       start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
-      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0),
+      isInRange: false,
+      promotions: [],
+      travellers: [],
+      bedding: [],
+      cabin: [],
+      active: false,
+      filters: this.filters
     },
     {
       start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
-      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0),
+      isInRange: false,
+      promotions: [],
+      travellers: [],
+      bedding: [],
+      cabin: [],
+      active: false,
+      filters: this.filters
     },
     {
       start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
-      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0),
+      isInRange: false,
+      promotions: [],
+      travellers: [],
+      bedding: [],
+      cabin: [],
+      active: false,
+      filters: this.filters
     },
     {
       start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
-      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0),
+      isInRange: false,
+      promotions: [],
+      travellers: [],
+      bedding: [],
+      cabin: [],
+      active: false,
+      filters: this.filters
     },
     {
       start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
-      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0),
+      isInRange: false,
+      promotions: [],
+      travellers: [],
+      bedding: [],
+      cabin: [],
+      active: false,
+      filters: this.filters
     },
     {
       start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
-      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0),
+      isInRange: false,
+      promotions: [],
+      travellers: [],
+      bedding: [],
+      cabin: [],
+      active: false,
+      filters: this.filters
     },
     {
       start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
-      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0),
+      isInRange: false,
+      promotions: [],
+      travellers: [],
+      bedding: [],
+      cabin: [],
+      active: false,
+      filters: this.filters
     },
     {
       start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
-      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0)
+      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0),
+      isInRange: false,
+      promotions: [],
+      travellers: [],
+      bedding: [],
+      cabin: [],
+      active: false,
+      filters: this.filters
     }
   ];
 
@@ -56,20 +119,13 @@ export class DepartureMonthComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  numGen(min, max) {
-    // min and max included
-    let start = Math.floor(Math.random() * (max - min + 1) + min);
-    let end = Math.floor(Math.random() * (max - start + 1) + start);
-    return start + ',' + end;
-  }
-
   selectRandomOptions(filterOptions) {
     let min = 0;
-    let max = (filterOptions.length - 1);
+    let max = filterOptions.length - 1;
     let start = Math.floor(Math.random() * (max - min + 1) + min);
     let end = Math.floor(Math.random() * (max - start + 1) + start);
     const randomOptions = Array.from(filterOptions).slice(start, end);
-    console.log(randomOptions);
+    console.log(filterOptions, randomOptions);
   }
 
   inRange(startDate, endDate) {
