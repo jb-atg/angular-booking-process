@@ -20,7 +20,7 @@
 
         <div innerAlign="middle right">
           			<button mat-button><i class="material-icons" (click)="previousStep()">navigate_before</i>Back</button>
-                <button mat-stroked-button color="primary" (click)="nextStep()">Next <i class="material-icons">navigate_next</i></button>
+                <button mat-button (click)="nextStep()">Next <i class="material-icons">navigate_next</i></button>
         </div>
 			</div>
 		</ng-container>
@@ -29,7 +29,7 @@
 	<div *ngIf="!collapsed">
 		<button *ngIf="!minimised"  class="minimise-button" mat-button (click)="minimised = !minimised"><i class="material-icons">keyboard_arrow_up</i>View Tour</button>
 		<button *ngIf="minimised" class="minimise-button" mat-flat-button (click)="minimised = !minimised" color="primary"><i class="material-icons">keyboard_arrow_down</i>Back to Booking</button>
-    <button mat-stroked-button class="cancel-button mr-1" color="warn" (click)="collapsed = !collapsed">Cancel Booking</button>
+    <button *ngIf="!minimised"  mat-flat-button class="cancel-button" color="warn" (click)="collapsed = !collapsed">Cancel Booking <i class="material-icons">close</i></button>
 		<mat-horizontal-stepper [linear]="true" #stepper >
 			<mat-step>
 				<ng-template matStepLabel> <span class="mat-title step-title">Select a Departure Date</span> </ng-template>
