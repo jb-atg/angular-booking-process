@@ -56,6 +56,22 @@ export class DepartureMonthComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+  numGen(min, max) {
+    // min and max included
+    let start = Math.floor(Math.random() * (max - min + 1) + min);
+    let end = Math.floor(Math.random() * (max - start + 1) + start);
+    return start + ',' + end;
+  }
+
+  selectRandomOptions(filterOptions) {
+    let min = 0;
+    let max = (filterOptions.length - 1);
+    let start = Math.floor(Math.random() * (max - min + 1) + min);
+    let end = Math.floor(Math.random() * (max - start + 1) + start);
+    const randomOptions = Array.from(filterOptions).slice(start, end);
+    console.log(randomOptions);
+  }
+
   inRange(startDate, endDate) {
     let filterStartDate = this.filters.date.startDate;
     let filterEndDate = this.filters.date.endDate;

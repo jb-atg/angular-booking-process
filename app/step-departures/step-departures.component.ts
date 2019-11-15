@@ -16,8 +16,6 @@ export class StepDeparturesComponent implements OnInit {
     { id: 7, label: "Jul" }
   ];
 
-  options = ["A", "B", "C"];
-
   promotions = [
     { value: 1, label: "Fly Free*" },
     { value: 2, label: "Fly From $495pp*" },
@@ -34,30 +32,29 @@ export class StepDeparturesComponent implements OnInit {
 
   cabins = [
     { value: 1, label: "B+" },
-    { value: 1, label: "C" },
-    { value: 1, label: "CC" },
-    { value: 1, label: "D" },
-    { value: 1, label: "DD" },
-    { value: 1, label: "E" },
-    { value: 1, label: "EE" },
-    { value: 1, label: "T" }
+    { value: 2, label: "C" },
+    { value: 3, label: "CC" },
+    { value: 4, label: "D" },
+    { value: 5, label: "DD" },
+    { value: 6, label: "E" },
+    { value: 7, label: "EE" },
+    { value: 8, label: "T" }
   ];
 
   
   sort = [
-    { value: 1, label: "Twin" },
-    { value: 2, label: "Double" },
-    { value: 3, label: "Single" }
+    { value: 1, label: "Date" },
+    { value: 2, label: "Price" },
   ];
 
 
   filters = {
     date: { startDate: new Date(), endDate: new Date() },
-    promotions: { options: this.options, selectedOption: 1 },
+    promotions: { options: this.promotions, selectedOption: 1 },
     travellers: { selectedOption: 2 },
-    bedding: [{ options: this.options, selectedOption: undefined }],
-    cabin: [{ options: this.options, selectedOption: undefined }],
-    sort: [{ options: this.options, selectedOption: undefined }]
+    bedding: [{ options: this.bedding, selectedOption: undefined }],
+    cabin: [{ options: this.cabins, selectedOption: undefined }],
+    sort: [{ options: this.sort, selectedOption: undefined }]
   };
 
   constructor() {}
