@@ -15,5 +15,14 @@
     max-width:calc(100vw - 33px);
     overflow:hidden;
     position:relative;
+
+    .filters {
+      padding:.25rem;
+      background:#eee;
+      flex-wrap:nowrap;
+      .mat-subheading-1 {
+        margin:0!important;
+      }
+    }
   }
 }
