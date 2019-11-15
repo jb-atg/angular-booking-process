@@ -45,6 +45,7 @@ import {
 } from "@angular/material";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 import { AppComponent } from "./app.component";
 import { StepDeparturesComponent } from "./step-departures/step-departures.component";
 import { PromoBadgeComponent } from './promo-badge/promo-badge.component';
@@ -99,7 +100,9 @@ import { DepartureSlotComponent } from './step-departures/departure-slot/departu
     MatTooltipModule,
     MatTreeModule,
     CountdownModule,
-    DragScrollModule
+    DragScrollModule,
+    SatDatepickerModule,
+    SatNativeDateModule
   ],
   entryComponents: [AppComponent],
   declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent],

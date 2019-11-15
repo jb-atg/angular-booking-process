@@ -234,6 +234,11 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 .mat-form-field-appearance-outline .mat-form-field-wrapper {
    padding-bottom: 0!important;
 }
+.mat-form-field-appearance-outline .mat-form-field-outline-gap,
+.mat-form-field-appearance-outline .mat-form-field-outline-end, .mat-form-field-appearance-outline .mat-form-field-outline-start {
+   border-width:2px!important;
+ color:var(--primary-lighter-color);
+}
 
 
 // Specific component overrides, pieces that are not in line with the general theming

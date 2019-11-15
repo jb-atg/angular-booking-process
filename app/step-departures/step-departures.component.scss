@@ -4,7 +4,7 @@
   height: calc(100vh - 228px);
   display:block;
   overflow-y:scroll;
-  border-top:1px solid rgba(0,0,0,0.25);
+  //border-top:1px solid rgba(0,0,0,0.25);
   box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
   background:var(--primary-lighter-color);
   &::-webkit-scrollbar {
@@ -18,7 +18,7 @@
 
     .filters {
       padding:.25rem;
-      background:#eee;
+      background:#fff;
       flex-wrap:nowrap;
       .mat-subheading-1 {
         margin:0!important;

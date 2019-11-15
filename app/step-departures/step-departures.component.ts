@@ -53,7 +53,7 @@ export class StepDeparturesComponent implements OnInit {
     promotions: { options: this.promotions, selectedOptions:undefined},
     travellers: { selectedOption: 2 },
     bedding: { options: this.bedding, selectedOption: undefined },
-    cabin: { options: this.cabins, selectedOptions: undefined },
+    cabins: { options: this.cabins, selectedOptions: undefined },
     sort: { options: this.sort, selectedOption: undefined }
   };
 
