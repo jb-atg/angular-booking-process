@@ -21,7 +21,7 @@ $fontConfig: (
   subheading-1: mat-typography-level(15px, 24px, 500,  'maison_neuebold', 0.0067em),
   body-2: mat-typography-level(14px, 24px, 500,  'maison_neuelight', 0.0179em),
   body-1: mat-typography-level(14px, 20px, 400,  'maison_neuelight', 0.0179em),
-  button: mat-typography-level(20px, 20px, 500,  'gilroy', 0.0893em),
+  button: mat-typography-level(16px, 20px, 500,  'maison_neuebold', 0.0893em),
   caption: mat-typography-level(12px, 20px, 400,  'maison_neuelight', 0.0333em),
   input: mat-typography-level(inherit, 1.125, 400,  'maison_neuebold', 1.5px)
 );
@@ -229,6 +229,10 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+   padding-bottom: 0!important;
 }
 
 

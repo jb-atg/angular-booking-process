@@ -12,9 +12,10 @@
 
 
 		<ng-container *ngIf="!collapsed">
+      <div>
 				<div class="mat-display-2">Book Now</div>
-				<div class="mat-title pl-1">15 Day Magnificent Europe Amsterdam to Budapest
-</div>
+				<div class="mat-subheading-1">15 Day Magnificent Europe Amsterdam to Budapest</div>
+      </div>
 
 			<div class="inner-toolbar pl-1 pr-1" innerAlign="middle right">
 
@@ -32,21 +33,21 @@
     <button *ngIf="!minimised"  mat-flat-button class="cancel-button" color="warn" (click)="collapsed = !collapsed">Cancel Booking <i class="material-icons">close</i></button>
 		<mat-horizontal-stepper [linear]="true" #stepper >
 			<mat-step>
-				<ng-template matStepLabel> <span class="mat-title step-title">Select a Departure Date</span> </ng-template>
+				<ng-template matStepLabel> <span class="mat-subheading-1 step-title">Select a Departure Date</span> </ng-template>
 				<app-step-departures data-simplebar></app-step-departures>
 			</mat-step>
 			<mat-step>
-				<ng-template matStepLabel> <span class="mat-title step-title">Trip Details</span></ng-template>
+				<ng-template matStepLabel> <span class="mat-subheading-1 step-title">Trip Details</span></ng-template>
 				<app-step-departures></app-step-departures>
 			</mat-step>
 
 			<mat-step>
-				<ng-template matStepLabel><span class="mat-title step-title">Passenger Details</span></ng-template>
+				<ng-template matStepLabel><span class="mat-subheading-1 step-title">Passenger Details</span></ng-template>
 				<app-step-departures></app-step-departures>
 			</mat-step>
 
 			<mat-step>
-				<ng-template matStepLabel><span class="mat-title step-title">Booking Complete</span></ng-template>
+				<ng-template matStepLabel><span class="mat-subheading-1 step-title">Booking Complete</span></ng-template>
 				<app-step-departures></app-step-departures>
 			</mat-step>
 		</mat-horizontal-stepper>
