@@ -9,6 +9,10 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
   @Input() departure;
   constructor() {}
 
+  log(marquee){
+console.log(marquee);
+  }
+
   ngOnInit() {
     this.generatePromos();
     this.generateCabins();

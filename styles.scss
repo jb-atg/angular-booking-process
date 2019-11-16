@@ -44,6 +44,10 @@ app-component {
   -webkit-font-smoothing: antialiased;
 }
 
+ng-marquee {
+.ng-marquee-wrapper:not(.active)  > div {animation:none!important; padding:0!important;}
+}
+
 .no-select {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */

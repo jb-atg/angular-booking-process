@@ -46,6 +46,7 @@ import {
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
+import { NgMarqueeModule } from 'ng-marquee';
 import { AppComponent } from "./app.component";
 import { StepDeparturesComponent } from "./step-departures/step-departures.component";
 import { PromoBadgeComponent } from './promo-badge/promo-badge.component';
@@ -102,7 +103,8 @@ import { DepartureSlotComponent } from './step-departures/departure-slot/departu
     CountdownModule,
     DragScrollModule,
     SatDatepickerModule,
-    SatNativeDateModule
+    SatNativeDateModule,
+    NgMarqueeModule 
   ],
   entryComponents: [AppComponent],
   declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent],
