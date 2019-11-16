@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from "@angular/core";
+import { Component, OnInit, Input, OnChanges,EventEmitter,Output } from "@angular/core";
 
 @Component({
   selector: "app-departure-slot",
@@ -7,18 +7,15 @@ import { Component, OnInit, Input, OnChanges } from "@angular/core";
 })
 export class DepartureSlotComponent implements OnInit, OnChanges {
   @Input() departure;
+  @Input() index;
+  @Output() isActive = new EventEmitter();
   constructor() {}
-
-  log(marquee){
-console.log(marquee);
-  }
 
   ngOnInit() {
     this.generatePromos();
     this.generateCabins();
     this.generateBedding();
     this.generatePrice();
-    console.log(this.departure);
   }
 
   ngOnChanges() {}
@@ -68,33 +65,7 @@ console.log(marquee);
     return startDate >= filterStartDate && endDate <= filterEndDate;
   }
 
-  /*
-    dayGen(min, max) {
-    // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  activate() {
+   this.isActive.emit(this.index);
   }
-
-  //slice from month
-
-  selectRandomDepartures() {
-    let min = 1;
-    let max = this.departures.length - 1;
-    let start = Math.floor(Math.random() * (max - min + 1) + min);
-    let end = Math.floor(Math.random() * (max - start + 1) + start);
-    const randomOptions = Array.from(this.departures).slice(start, end);
-    this.departures = randomOptions;
-  }
-}*/
-
-  /*   let departure = {
-      start: new Date(2020, this.month, this.dayGen(1, 15), 0, 0, 0, 0),
-      end: new Date(2020, this.month, this.dayGen(15, 29), 0, 0, 0, 0),
-      isInRange: true,
-      promotions: [],
-      travellers: [],
-      cabin: [],
-      price: undefined,
-      active: false,
-      filters: this.filters
-    } */
 }

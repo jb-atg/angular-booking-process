@@ -1,13 +1,14 @@
-<div class="tile">
+<div class="tile" (click)="activate()" [class.active]="departure.active && departure.month.active">
 	<div innerAlign="left middle" class="mat-headline">
 		{{departure.begin | date:'EEE d'}}
 		<i class="material-icons">keyboard_arrow_right</i>
 		{{!departure.endsNextMonth ? (departure.end | date:'EEE dd') : (departure.end | date:'LLL EEE dd') }}
 	</div>
-	<div (click)="log(marquee)">
-			<ng-marquee #marquee duration="0">
-        <mark *ngIf="departure.promotions.length == 0"><i class="material-icons">monetization_on</i><span class="mat-body-1 pr-1">No Promotions Available</span></mark>
-				<mark *ngFor="let promo of departure.promotions: let i = index;"><i *ngIf="i==0" class="material-icons">monetization_on</i><span class="mat-body-1 pr-1">{{promo.label}}</span></mark>
+	<div class="tile-line" innerAlign="left middle">
+ <i class="material-icons md-18">monetization_on</i>
+      <span  *ngIf="departure.promotions.length == 0" class="mat-body-1 pr-1">No Promotions Available</span>
+			<ng-marquee *ngIf="departure.promotions.length > 0" #marquee [class.active]="mark.offsetWidth > 300 && departure.active && departure.month.active">
+				<mark><div #mark><span *ngFor="let promo of departure.promotions; let i = index;" class="mat-body-1 pr-1">{{promo.label}}</span></div></mark>
 			</ng-marquee>
 
 	</div>

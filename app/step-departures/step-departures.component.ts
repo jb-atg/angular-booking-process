@@ -7,13 +7,13 @@ import { Component, OnInit } from "@angular/core";
 })
 export class StepDeparturesComponent implements OnInit {
   months = [
-    { id: 0, label: "Jan", numberOfDepartures: 5, isInRange: false },
-    { id: 1, label: "Feb", numberOfDepartures: 2, isInRange: false },
-    { id: 2, label: "Mar", numberOfDepartures: 8, isInRange: false },
-    { id: 3, label: "Apr", numberOfDepartures: 1, isInRange: false },
-    { id: 4, label: "May", numberOfDepartures: 10, isInRange: false },
-    { id: 5, label: "Jun", numberOfDepartures: 2, isInRange: false },
-    { id: 6, label: "Jul", numberOfDepartures: 1, isInRange: false }
+    { id: 0, label: "Jan", numberOfDepartures: 5, isInRange: false, active:false,},
+    { id: 1, label: "Feb", numberOfDepartures: 2, isInRange: false, active:false,},
+    { id: 2, label: "Mar", numberOfDepartures: 8, isInRange: false, active:false,},
+    { id: 3, label: "Apr", numberOfDepartures: 1, isInRange: false, active:false,},
+    { id: 4, label: "May", numberOfDepartures: 10, isInRange: false, active:false,},
+    { id: 5, label: "Jun", numberOfDepartures: 2, isInRange: false, active:false,},
+    { id: 6, label: "Jul", numberOfDepartures: 1, isInRange: false, active:false,}
   ];
 
   promotions = [
@@ -59,4 +59,11 @@ export class StepDeparturesComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+    setActive(i) {
+  
+    this.months.forEach(month => (month.active = false));
+    this.months[i].active = true;
+    console.log(this.months);
+  }
 }

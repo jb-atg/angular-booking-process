@@ -1,19 +1,31 @@
-import { Component, OnInit, Input } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges
+} from "@angular/core";
 
 @Component({
   selector: "app-departure-month",
   templateUrl: "./departure-month.component.html",
   styleUrls: ["./departure-month.component.scss"]
 })
-export class DepartureMonthComponent implements OnInit {
+export class DepartureMonthComponent implements OnInit, OnChanges {
   @Input() month: any;
   @Input() filters: any;
+  @Output() isActive = new EventEmitter();
+
   departures = [];
 
   constructor() {}
 
   ngOnInit() {
     this.generateDepartures();
+  }
+
+  ngOnChanges() {
   }
 
   generateDepartures() {
@@ -37,10 +49,10 @@ export class DepartureMonthComponent implements OnInit {
       this.generateDates(departure);
       this.departures.push(departure);
 
-     if(this.departures.length == numberOfDepartures) {
-       console.log('sort');
-       this.departures = this.departures.sort(this.dynamicSort("begin"));
-     }
+      if (this.departures.length == numberOfDepartures) {
+        console.log("sort");
+        this.departures = this.departures.sort(this.dynamicSort("begin"));
+      }
     }
   }
 
@@ -78,6 +90,12 @@ export class DepartureMonthComponent implements OnInit {
         a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
       return result * sortOrder;
     };
+  }
+
+  setActive(i) {
+    this.departures.forEach(departure => (departure.active = false));
+    this.departures[i].active = true;
+    this.isActive.emit(this.month.id);
   }
 }
 

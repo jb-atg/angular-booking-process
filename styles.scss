@@ -16,6 +16,7 @@ body {
   margin:0;
   display:flex;
   justify-content:center;
+    @extend .mat-body-1;
 
   iframe {
     width: calc(100vw - 4px);
@@ -25,6 +26,7 @@ body {
 }
 
 app-component {
+
   margin: 0;
   -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
@@ -44,8 +46,10 @@ app-component {
   -webkit-font-smoothing: antialiased;
 }
 
-ng-marquee {
-.ng-marquee-wrapper:not(.active)  > div {animation:none!important; padding:0!important;}
+ng-marquee{overflow:hidden;};
+
+ng-marquee:not(.active) {
+.ng-marquee-wrapper  > div {animation:none!important; padding:0!important;}
 }
 
 .no-select {

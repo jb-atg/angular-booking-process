@@ -11,10 +11,24 @@ position:relative;
   height: 142px;
   border-radius:.5rem;
   background:#fff;
+
+  &.active {
+    background:red;
+  }
 }
 
 mark {
   background:transparent!important;
+}
+
+.material-icons.md-18 {
+font-size:18px;
+margin-right:.25rem;
+display:inline;
+}
+
+.tile-line {
+  flex-wrap:nowrap;
 }
 
 }
