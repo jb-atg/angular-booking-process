@@ -240,6 +240,10 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
  color:var(--primary-lighter-color);
 }
 
+.drag-scroll-wrapper.drag-scroll-container {
+  height:unset!important;
+}
+
 
 // Specific component overrides, pieces that are not in line with the general theming
 

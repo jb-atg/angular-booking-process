@@ -49,13 +49,18 @@ export class StepDeparturesComponent implements OnInit {
 
 
   filters = {
-    date: { startDate: new Date(), endDate: new Date() },
+    dateRange: undefined,
     promotions: { options: this.promotions, selectedOptions:undefined},
     travellers: { selectedOption: 2 },
     bedding: { options: this.bedding, selectedOption: undefined },
     cabins: { options: this.cabins, selectedOptions: undefined },
     sort: { options: this.sort, selectedOption: undefined }
   };
+
+
+  logFilters() {
+    console.log(this.filters);
+  }
 
   constructor() {}
 
