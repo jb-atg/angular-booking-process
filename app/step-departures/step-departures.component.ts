@@ -7,13 +7,13 @@ import { Component, OnInit } from "@angular/core";
 })
 export class StepDeparturesComponent implements OnInit {
   months = [
-    { id: 3, label: "Jan" },
-    { id: 3, label: "Feb" },
-    { id: 3, label: "Mar" },
-    { id: 4, label: "Apr" },
-    { id: 5, label: "May" },
-    { id: 6, label: "Jun" },
-    { id: 7, label: "Jul" }
+    { id: 3, label: "Jan", numberOfDepartures: 5, isInRange: false },
+    { id: 3, label: "Feb", numberOfDepartures: 2, isInRange: false },
+    { id: 3, label: "Mar", numberOfDepartures: 8, isInRange: false },
+    { id: 4, label: "Apr", numberOfDepartures: 1, isInRange: false },
+    { id: 5, label: "May", numberOfDepartures: 10, isInRange: false },
+    { id: 6, label: "Jun", numberOfDepartures: 2, isInRange: false },
+    { id: 7, label: "Jul", numberOfDepartures: 1, isInRange: false }
   ];
 
   promotions = [
@@ -41,22 +41,16 @@ export class StepDeparturesComponent implements OnInit {
     { value: 8, label: "T" }
   ];
 
-  
-  sort = [
-    { value: 1, label: "Date" },
-    { value: 2, label: "Price" },
-  ];
-
+  sort = [{ value: 1, label: "Date" }, { value: 2, label: "Price" }];
 
   filters = {
     dateRange: undefined,
-    promotions: { options: this.promotions, selectedOptions:undefined},
+    promotions: { options: this.promotions, selectedOptions: undefined },
     travellers: { selectedOption: 2 },
     bedding: { options: this.bedding, selectedOption: undefined },
     cabins: { options: this.cabins, selectedOptions: undefined },
     sort: { options: this.sort, selectedOption: undefined }
   };
-
 
   logFilters() {
     console.log(this.filters);

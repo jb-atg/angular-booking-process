@@ -124,13 +124,30 @@ export class DepartureMonthComponent implements OnInit{
       filters: this.filters
     }
     ]
-this.selectRandomDepartures();
   }
 
   dayGen(min, max) {
     // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
+
+
+generateDepartures() {
+
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 //slice from month
