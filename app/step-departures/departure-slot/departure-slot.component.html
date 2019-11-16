@@ -1,18 +1,22 @@
-<div class="tile" (click)="activate()" [class.active]="departure.active && departure.month.active">
+<div class="tile" (click)="activate()"  [class.active]="departure.active && departure.month.active">
+  <div class="w-100">
 	<div innerAlign="left middle" class="mat-headline">
-		{{departure.begin | date:'EEE d'}}
+		{{departure.begin | date:'EEE dd'}}
 		<i class="material-icons">keyboard_arrow_right</i>
-		{{!departure.endsNextMonth ? (departure.end | date:'EEE dd') : (departure.end | date:'LLL EEE dd') }}
+		{{!departure.endsNextMonth ? (departure.end | date:'EEE dd') : (departure.end | date:'EEE dd LLL') }}
 	</div>
-	<div class="tile-line" innerAlign="left middle">
-		<i class="material-icons md-18">monetization_on</i>
-		<span *ngIf="departure.promotions.length == 0" class="mat-body-1 pr-1">No Promotions Available</span>
-    <div class="promos" [class.active]="departure.active && departure.month.active"><span *ngFor="let promo of departure.promotions; let i = index;" class="promo mat-body-1 pr-1">{{promo.label}}</span></div>
+	<div class="tile-line pt-1 pb-1" innerAlign="left middle">
+		<span *ngIf="departure.promotions.length == 0" class="mat-body-2">No Promotions Available</span>
+    <div class="promos" [class.active]="departure.active && departure.month.active">
+      <span *ngFor="let promo of departure.promotions; let i = index;" class="promo mr-1" innerAlign="left middle">
+          <i *ngIf="departure.active && departure.month.active" class="material-icons">info_outline</i>
+          <span class="mat-body-2">{{promo.label}}</span></span>
+        </div>
 	</div>
+</div>
 
 
-
-	<span class="mat-subheading-2">
+	<span class="mat-title">
   From {{departure.price | currency}} AUD pp
   </span>
 

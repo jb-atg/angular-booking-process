@@ -12,12 +12,22 @@ position:relative;
   border-radius:.5rem;
   background:#fff;
   overflow:hidden;
+display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    align-content: start;
 
   &.active {
      max-width:600px;
-    background:red;
+     background: var(--primary-color);
     overflow:hidden;
       transition: all .4s cubic-bezier(.25,.8,.25,1);
+
+span,i,div{
+color:#fff!important;
+}
+
 
   }
 }
@@ -25,7 +35,7 @@ position:relative;
  width:100%;
  white-space: wrap;
  .promo {
-   display:block;
+   display:flex;
  }
 }
 
@@ -33,15 +43,17 @@ position:relative;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: calc(100% - 1rem);
+
+
    .promo {
    display:inline;
+  background: var(--accent-color);
+    padding: .25rem .5rem;
+    border-radius: 100px;
  }
 }
 
-
-mark {
-  background:transparent!important;
-}
 
 .material-icons.md-18 {
 font-size:18px;
