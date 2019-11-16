@@ -13,6 +13,7 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
     this.generateDates();
     this.generatePromos();
     this.generateCabins();
+    this.generateBedding();
     this.generatePrice();
 
     console.log(this.departure);
