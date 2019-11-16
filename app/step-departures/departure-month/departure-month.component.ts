@@ -98,7 +98,7 @@ export class DepartureMonthComponent implements OnInit, OnChanges {
   }
 
 notActive() {
-  this.departures
+
 }
 
 }
