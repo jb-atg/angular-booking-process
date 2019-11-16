@@ -32,11 +32,52 @@ export class DepartureMonthComponent implements OnInit {
         cabins: [],
         price: undefined,
         active: false,
-        filters: this.filters,
-
+        filters: this.filters
       };
+      this.generateDates(departure);
       this.departures.push(departure);
+
+     if(this.departures.length == numberOfDepartures) {
+       console.log('sort');
+       this.departures = this.departures.sort(this.dynamicSort("begin"));
+     }
     }
+  }
+
+  generateDates(departure) {
+    let month = departure.month.id;
+    let begin = this.dayGen(1, 28);
+    let end = begin + 15;
+    if (end > 28) {
+      end = end - 28;
+      departure.begin = new Date(2020, month, begin, 0, 0, 0, 0);
+      departure.end = new Date(2020, month + 1, end, 0, 0, 0, 0);
+      departure.endsNextMonth = true;
+    } else {
+      departure.begin = new Date(2020, month, begin, 0, 0, 0, 0);
+      departure.end = new Date(2020, month, end, 0, 0, 0, 0);
+    }
+  }
+
+  dayGen(min, max) {
+    // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  dynamicSort(property) {
+    var sortOrder = 1;
+    if (property[0] === "-") {
+      sortOrder = -1;
+      property = property.substr(1);
+    }
+    return function(a, b) {
+      /* next line works with strings and numbers,
+       * and you may want to customize it to your needs
+       */
+      var result =
+        a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+      return result * sortOrder;
+    };
   }
 }
 

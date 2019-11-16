@@ -7,13 +7,13 @@ import { Component, OnInit } from "@angular/core";
 })
 export class StepDeparturesComponent implements OnInit {
   months = [
-    { id: 3, label: "Jan", numberOfDepartures: 5, isInRange: false },
-    { id: 3, label: "Feb", numberOfDepartures: 2, isInRange: false },
-    { id: 3, label: "Mar", numberOfDepartures: 8, isInRange: false },
-    { id: 4, label: "Apr", numberOfDepartures: 1, isInRange: false },
-    { id: 5, label: "May", numberOfDepartures: 10, isInRange: false },
-    { id: 6, label: "Jun", numberOfDepartures: 2, isInRange: false },
-    { id: 7, label: "Jul", numberOfDepartures: 1, isInRange: false }
+    { id: 0, label: "Jan", numberOfDepartures: 5, isInRange: false },
+    { id: 1, label: "Feb", numberOfDepartures: 2, isInRange: false },
+    { id: 2, label: "Mar", numberOfDepartures: 8, isInRange: false },
+    { id: 3, label: "Apr", numberOfDepartures: 1, isInRange: false },
+    { id: 4, label: "May", numberOfDepartures: 10, isInRange: false },
+    { id: 5, label: "Jun", numberOfDepartures: 2, isInRange: false },
+    { id: 6, label: "Jul", numberOfDepartures: 1, isInRange: false }
   ];
 
   promotions = [

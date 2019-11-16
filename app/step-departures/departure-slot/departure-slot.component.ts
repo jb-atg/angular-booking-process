@@ -10,7 +10,6 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit() {
-    this.generateDates();
     this.generatePromos();
     this.generateCabins();
     this.generateBedding();
@@ -20,20 +19,6 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
 
   ngOnChanges() {}
 
-  generateDates() {
-    let month = this.departure.month.id;
-    let begin = this.dayGen(1, 28);
-    let end = begin + 15;
-    if (end > 28) {
-      end = end - 28;
-      this.departure.begin = new Date(2020, month, begin, 0, 0, 0, 0);
-      this.departure.end = new Date(2020, (month + 1), end, 0, 0, 0, 0);
-    } else {
-      this.departure.begin = new Date(2020, month, begin, 0, 0, 0, 0);
-      this.departure.end = new Date(2020, month, end, 0, 0, 0, 0);
-    }
-
-  }
   generatePromos() {
     this.selectRandomOptions("promotions");
   }
@@ -61,10 +46,6 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
     }
   }
 
-  dayGen(min, max) {
-    // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
 
   inRange(startDate, endDate) {
     let filterStartDate = 0;
