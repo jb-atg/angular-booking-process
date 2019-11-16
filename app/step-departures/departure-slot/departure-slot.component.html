@@ -5,12 +5,11 @@
 		{{!departure.endsNextMonth ? (departure.end | date:'EEE dd') : (departure.end | date:'LLL EEE dd') }}
 	</div>
 	<div class="tile-line" innerAlign="left middle">
- <i class="material-icons md-18">monetization_on</i>
-      <span  *ngIf="departure.promotions.length == 0" class="mat-body-1 pr-1">No Promotions Available</span>
-			<ng-marquee *ngIf="departure.promotions.length > 0" #marquee [class.active]="mark.offsetWidth > 300 && departure.active && departure.month.active">
-				<mark><div #mark><span *ngFor="let promo of departure.promotions; let i = index;" class="mat-body-1 pr-1">{{promo.label}}</span></div></mark>
-			</ng-marquee>
-
+		<i class="material-icons md-18">monetization_on</i>
+		<span  *ngIf="departure.promotions.length == 0" class="mat-body-1 pr-1">No Promotions Available</span>
+		<mat-chip-list>
+			<mat-chip color="accent" [selected]="departure.active && departure.month.active" *ngFor="let promo of departure.promotions; let i = index;">{{promo.label}}</mat-chip>
+		</mat-chip-list>
 	</div>
 
 
@@ -20,3 +19,14 @@
   </span>
 
 </div>
+
+
+
+
+<!--
+
+        <span  *ngIf="departure.promotions.length == 0" class="mat-body-1 pr-1">No Promotions Available</span>
+			<ng-marquee *ngIf="departure.promotions.length > 0" #marquee [class.active]="mark.offsetWidth > 300 && departure.active && departure.month.active">
+				<mark><div #mark><span *ngFor="let promo of departure.promotions; let i = index;" class="mat-body-1 pr-1">{{promo.label}}</span></div></mark>
+			</ng-marquee>
+ -->

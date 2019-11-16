@@ -244,6 +244,10 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   height:unset!important;
 }
 
+.mat-chip-list-wrapper{
+  flex-wrap:nowrap!important;
+}
+
 
 // Specific component overrides, pieces that are not in line with the general theming
 
