@@ -68,4 +68,9 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
   activate() {
    this.isActive.emit(this.index);
   }
+
+  activatePromo(i) {
+    this.departure.promotions.forEach(promo => (promo.active = false));
+    this.departure.promotions[i].active = true;
+  }
 }

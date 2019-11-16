@@ -7,21 +7,63 @@ import { Component, OnInit } from "@angular/core";
 })
 export class StepDeparturesComponent implements OnInit {
   months = [
-    { id: 0, label: "Jan", numberOfDepartures: 5, isInRange: false, active:false,},
-    { id: 1, label: "Feb", numberOfDepartures: 2, isInRange: false, active:false,},
-    { id: 2, label: "Mar", numberOfDepartures: 8, isInRange: false, active:false,},
-    { id: 3, label: "Apr", numberOfDepartures: 1, isInRange: false, active:false,},
-    { id: 4, label: "May", numberOfDepartures: 10, isInRange: false, active:false,},
-    { id: 5, label: "Jun", numberOfDepartures: 2, isInRange: false, active:false,},
-    { id: 6, label: "Jul", numberOfDepartures: 1, isInRange: false, active:false,}
+    {
+      id: 0,
+      label: "Jan",
+      numberOfDepartures: 5,
+      isInRange: false,
+      active: false
+    },
+    {
+      id: 1,
+      label: "Feb",
+      numberOfDepartures: 2,
+      isInRange: false,
+      active: false
+    },
+    {
+      id: 2,
+      label: "Mar",
+      numberOfDepartures: 8,
+      isInRange: false,
+      active: false
+    },
+    {
+      id: 3,
+      label: "Apr",
+      numberOfDepartures: 1,
+      isInRange: false,
+      active: false
+    },
+    {
+      id: 4,
+      label: "May",
+      numberOfDepartures: 10,
+      isInRange: false,
+      active: false
+    },
+    {
+      id: 5,
+      label: "Jun",
+      numberOfDepartures: 2,
+      isInRange: false,
+      active: false
+    },
+    {
+      id: 6,
+      label: "Jul",
+      numberOfDepartures: 1,
+      isInRange: false,
+      active: false
+    }
   ];
 
   promotions = [
-    { value: 1, label: "Fly Free*" },
-    { value: 2, label: "Fly From $495pp*" },
-    { value: 3, label: "Companion Fly Free*" },
-    { value: 4, label: "Fly Business Class From $3,995pp*" },
-    { value: 5, label: "50% Off Solo Supplement*" }
+    { value: 1, label: "Fly Free*", active: false },
+    { value: 2, label: "Fly From $495pp*", active: false },
+    { value: 3, label: "Companion Fly Free*", active: false },
+    { value: 4, label: "Fly Business Class From $3,995pp*", active: false },
+    { value: 5, label: "50% Off Solo Supplement*", active: false }
   ];
 
   bedding = [
@@ -60,8 +102,7 @@ export class StepDeparturesComponent implements OnInit {
 
   ngOnInit() {}
 
-    setActive(i) {
-  
+  setActive(i) {
     this.months.forEach(month => (month.active = false));
     this.months[i].active = true;
     console.log(this.months);

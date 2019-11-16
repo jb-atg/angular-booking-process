@@ -6,9 +6,13 @@
 	</div>
 	<div class="tile-line" innerAlign="left middle">
 		<i class="material-icons md-18">monetization_on</i>
-		<span  *ngIf="departure.promotions.length == 0" class="mat-body-1 pr-1">No Promotions Available</span>
-		<mat-chip-list>
-			<mat-chip color="accent" [selected]="departure.active && departure.month.active" *ngFor="let promo of departure.promotions; let i = index;">{{promo.label}}</mat-chip>
+		<span *ngIf="departure.promotions.length == 0" class="mat-body-1 pr-1">No Promotions Available</span>
+    <ng-container *ngIf="!departure.active">
+          <span *ngFor="let promo of departure.promotions; let i = index;" class="mat-body-1 pr-1">{{promo.label}}</span>
+    </ng-container>
+
+		<mat-chip-list *ngIf="departure.active && departure.month.active">
+			<mat-chip (click)="activatePromo(i)" color="accent" [selected]="promo.active" *ngFor="let promo of departure.promotions; let i = index;">{{promo.label}}</mat-chip>
 		</mat-chip-list>
 	</div>
 

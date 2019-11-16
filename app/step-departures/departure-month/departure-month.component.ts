@@ -50,7 +50,6 @@ export class DepartureMonthComponent implements OnInit, OnChanges {
       this.departures.push(departure);
 
       if (this.departures.length == numberOfDepartures) {
-        console.log("sort");
         this.departures = this.departures.sort(this.dynamicSort("begin"));
       }
     }
