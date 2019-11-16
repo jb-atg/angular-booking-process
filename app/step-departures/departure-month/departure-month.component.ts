@@ -29,11 +29,11 @@ export class DepartureMonthComponent implements OnInit {
         promotions: [],
         travellers: [],
         bedding: [],
-        cabin: [],
+        cabins: [],
         price: undefined,
         active: false,
         filters: this.filters,
-        
+
       };
       this.departures.push(departure);
     }
