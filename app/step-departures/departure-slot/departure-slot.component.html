@@ -1,9 +1,14 @@
 <div class="tile">
-	<span innerAlign="left middle" class="mat-headline">
+	<div innerAlign="left middle" class="mat-headline">
   {{departure.begin | date:'EEE d'}} 
   <i class="material-icons">keyboard_arrow_right</i> 
   {{!departure.endsNextMonth ? (departure.end | date:'EEE dd') : (departure.end | date:'LLL EEE dd') }}
-  </span>
+  </div>
+<div>
+  <ng-container  *ngFor="let promo of departure.promotions"> 
+    	<span class="mat-body-1 pr-1">{{promo.label}}</span>
+  </ng-container>
+</div>
 
 
 
