@@ -21,7 +21,22 @@ position:relative;
 
   }
 }
+.promos {
+ width:100%;
+ white-space: wrap;
+ .promo {
+   display:block;
+ }
+}
 
+.promos:not(.active) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+   .promo {
+   display:inline;
+ }
+}
 
 
 mark {
@@ -36,6 +51,12 @@ display:inline;
 
 .tile-line {
   flex-wrap:nowrap;
+
 }
+
+  [ng-reflect-selected="false"] {
+    background:transparent!important;
+  }
+
 
 }
