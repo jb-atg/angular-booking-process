@@ -1,5 +1,7 @@
 :host() {
 display:inline-flex!important;
+align-items:center;
+align-content:center;
 height:100%;
 padding:1rem;
 position:relative;
@@ -8,7 +10,7 @@ position:relative;
   min-width:300px;
   max-width:300px;
   padding:.5rem;
-  height: 142px;
+  min-height: 142px;
   border-radius:.5rem;
   background:#fff;
   overflow:hidden;
