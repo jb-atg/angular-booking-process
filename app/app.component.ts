@@ -30,6 +30,7 @@ this.selectedStep =  event.selectedIndex;
 }
 
 isDepartureSelected(event) {
+  console.log(event);
 this.departureSelected = event;
 }
 

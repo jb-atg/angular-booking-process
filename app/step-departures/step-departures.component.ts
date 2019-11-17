@@ -110,8 +110,9 @@ export class StepDeparturesComponent implements OnInit {
     if(this.months[i]) {
     this.isActive.emit(true);
     this.months[i].active = true;
-    }
+    } else {
     this.getAllNotActive();
+    }
   }
 
   getAllNotActive() {
