@@ -19,6 +19,7 @@
 
 			<mat-form-field drag-scroll-item appearance="outline" class="pr-1" [class.filled]="filters.promotions?.selectedOptions?.length > 0">
 				<mat-label>Promotions</mat-label>
+            <span matPrefix><i class="material-icons">info</i></span>
 				<mat-select [(ngModel)]="filters.promotions.selectedOptions" multiple>
 					<mat-option *ngFor="let  promo of filters.promotions.options" [value]="promo.value">
 						{{promo.label}}
@@ -28,6 +29,7 @@
 
 			<mat-form-field drag-scroll-item appearance="outline" class="pr-1" [class.filled]="filters.bedding.selectedOption">
 				<mat-label>Bedding</mat-label>
+            <span matPrefix><i class="material-icons">info</i></span>
 				<mat-select [(ngModel)]="filters.bedding.selectedOption">
 					<mat-option *ngFor="let bedding of filters.bedding.options" [value]="bedding.value">
 						{{bedding.label}}
@@ -37,6 +39,7 @@
 
 			<mat-form-field drag-scroll-item appearance="outline" class="pr-1" [class.filled]="filters.cabins.selectedOptions?.length > 0">
 				<mat-label>Cabin</mat-label>
+            <span matPrefix><i class="material-icons">info</i></span>
 				<mat-select [(ngModel)]="filters.cabins.selectedOptions" multiple>
 					<mat-option *ngFor="let cabin of filters.cabins.options" [value]="cabin.value">
 						{{cabin.label}}
