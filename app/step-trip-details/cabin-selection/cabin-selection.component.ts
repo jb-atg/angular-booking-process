@@ -22,9 +22,10 @@ export class CabinSelectionComponent implements OnInit {
   ngOnInit() {}
 
   activateCabin(i) {
+      let toggle = this.cabins[i].active ? false : true ;
     this.cabins.forEach(cabin => (cabin.active = false));
     if (this.cabins[i]) {
-      this.cabins[i].active = true;
+      this.cabins[i].active = toggle;
     }
   }
 }

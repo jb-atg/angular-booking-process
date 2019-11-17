@@ -19,9 +19,10 @@ export class PromotionSelectionComponent implements OnInit {
   ngOnInit() {}
 
   activatePromo(i) {
+      let toggle = this.promotions[i].active ? false : true ;
     this.promotions.forEach(promo => (promo.active = false));
     if (this.promotions[i]) {
-      this.promotions[i].active = true;
+      this.promotions[i].active = toggle;
     }
   }
 }
