@@ -1,6 +1,5 @@
-<div class="tile" (click)="activate()" 
-[class.active]="departure.active && departure.month.active"
-[class.other-active]="departure.month.active && !allNotActive && !departure.active">
+<div class="tile" (click)="!departure.active ? activate(): undefined" 
+[class.active]="departure.active && departure.month.active">
 	<div class="w-100">
     <div innerAlign="spaceBetween middle">
 		<div innerAlign="left middle" class="mat-headline">
@@ -9,7 +8,7 @@
 			{{!departure.endsNextMonth ? (departure.end | date:'EEE dd') : (departure.end | date:'EEE dd LLL') }}
 		</div>
 
-   <i *ngIf="!departure.active || !departure.month.active" class="material-icons md-36 info">info</i>
+   <i *ngIf="!departure.active || !departure.month.active" class="material-icons md-36 tile-info">info</i>
    <i (click)="deactivate()" *ngIf="departure.active && departure.month.active" class="material-icons md-36 info">cancel</i>
 
     </div>

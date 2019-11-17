@@ -237,8 +237,14 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 .mat-form-field-appearance-outline .mat-form-field-outline-gap,
 .mat-form-field-appearance-outline .mat-form-field-outline-end, .mat-form-field-appearance-outline .mat-form-field-outline-start {
    border-width:2px!important;
- color:var(--primary-lighter-color);
 }
+
+
+.mat-form-field-appearance-outline.ng-dirty {
+  .mat-form-field-label, .mat-form-field-outline-gap, .mat-form-field-outline-end, .mat-form-field-outline-start {
+ color:var(--primary-color);
+}
+} 
 
 .drag-scroll-wrapper.drag-scroll-container {
   height:unset!important;

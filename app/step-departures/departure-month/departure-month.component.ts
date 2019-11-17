@@ -18,6 +18,7 @@ export class DepartureMonthComponent implements OnInit, OnChanges {
   @Output() isActive = new EventEmitter();
 
   departures = [];
+  allNotActive = true;
 
   constructor() {}
 
@@ -25,8 +26,7 @@ export class DepartureMonthComponent implements OnInit, OnChanges {
     this.generateDepartures();
   }
 
-  ngOnChanges() {
-  }
+  ngOnChanges() {}
 
   generateDepartures() {
     let numberOfDepartures = this.month.numberOfDepartures;
@@ -92,13 +92,23 @@ export class DepartureMonthComponent implements OnInit, OnChanges {
   }
 
   setActive(i) {
+
     this.departures.forEach(departure => (departure.active = false));
-    this.departures[i].active = true;
-    this.isActive.emit(this.month.id);
+    if (this.departures[i]) {
+      this.departures[i].active = true;
+      this.isActive.emit(this.month.id);
+    } else {
+          this.isActive.emit(-1);
+    }
+    this.getAllNotActive();
   }
 
-allNotActive() {let allNotActive = this.departures.every(departure => departure.active == false);}
-
+  getAllNotActive() {
+    let allNotActive = this.departures.every(
+      departure => departure.active == false
+    );
+    this.allNotActive = allNotActive;
+  }
 }
 
 /*

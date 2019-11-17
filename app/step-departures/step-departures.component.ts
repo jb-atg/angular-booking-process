@@ -94,6 +94,8 @@ export class StepDeparturesComponent implements OnInit {
     sort: { options: this.sort, selectedOption: undefined }
   };
 
+  allNotActive = true;
+
   logFilters() {
     console.log(this.filters);
   }
@@ -103,10 +105,17 @@ export class StepDeparturesComponent implements OnInit {
   ngOnInit() {}
 
   setActive(i) {
+    console.log(i);
     this.months.forEach(month => (month.active = false));
+    if(this.months[i]) {
     this.months[i].active = true;
-    console.log(this.months);
+    }
+    this.getAllNotActive();
   }
 
-  allNotActive() {let allNotActive = this.months.every(month => month.active == false); return allNotActive;}
+  getAllNotActive() {
+   
+ let allNotActive = this.months.every(month => month.active == false); 
+    this.allNotActive = allNotActive;
+    }
 }

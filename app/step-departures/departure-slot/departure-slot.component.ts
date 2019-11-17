@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, OnChanges,EventEmitter,Output } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  EventEmitter,
+  Output
+} from "@angular/core";
 
 @Component({
   selector: "app-departure-slot",
@@ -48,7 +55,6 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
     }
   }
 
-
   inRange(startDate, endDate) {
     let filterStartDate = 0;
     let filterEndDate = 0;
@@ -67,18 +73,18 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
   }
 
   activate() {
-   this.isActive.emit(this.index);
+    this.isActive.emit(this.index);
   }
 
-    deactivate() {
-   this.isActive.emit(-1);
+  deactivate() {
+    setTimeout(() => {
+      //<<<---    using ()=> syntax
+      this.isActive.emit(-1);
+    }, 100);
   }
-
 
   activatePromo(i) {
     this.departure.promotions.forEach(promo => (promo.active = false));
     this.departure.promotions[i].active = true;
   }
-
-  
 }

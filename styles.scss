@@ -62,8 +62,9 @@ ng-marquee:not(.active) {
                                   supported by Chrome, Opera and Firefox */
 }
 
-    app-departure-month.other-active  .tile  {
-opacity:0.75;
+    app-departure-month.other-active  .tile:not(.active), 
+    app-departure-month.active  .tile:not(.active) {
+opacity:0.6;
   }
 
 .w-100 {
