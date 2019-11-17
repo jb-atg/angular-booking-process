@@ -20,6 +20,14 @@
       width:100%;
       height:100%;
       background:rgba(#fff,.75);
+
+      mat-button-toggle-group{
+        margin-top:.5rem;
+        mat-button-toggle.mat-button-toggle-checked, mat-button-toggle.active {
+    background: var(--primary-color);
+    color: #fff!important;
+}
+      }
     }
   }
 

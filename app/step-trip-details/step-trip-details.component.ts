@@ -7,6 +7,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class StepTripDetailsComponent implements OnInit {
   addOn: boolean = false;
+  bedding: string = 'Twin'
   constructor() {}
 
   ngOnInit() {}
