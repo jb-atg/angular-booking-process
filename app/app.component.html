@@ -37,7 +37,7 @@
           <span *ngIf="selectedStep != 0" class="step-title">Select a Departure Date</span> 
           <span *ngIf="selectedStep == 0" class="mat-headline">Select a Departure Date</span> 
           </ng-template>
-				<app-step-departures></app-step-departures>
+				<app-step-departures (isActive)="isDepartureSelected($event)"></app-step-departures>
 			</mat-step>
 			<mat-step>
 				<ng-template matStepLabel> 

@@ -13,6 +13,8 @@ export class AppComponent {
 @HostBinding('class.minimised') minimised:boolean = false;
 @ViewChild('stepper', {static: false}) stepper:any;
 
+departureSelected: boolean =false;
+
 selectedStep:number = 0;
 
 nextStep() {
@@ -25,6 +27,10 @@ this.stepper.previous();
 
 stepperChange(event) {
 this.selectedStep =  event.selectedIndex;
+}
+
+isDepartureSelected(event) {
+this.departureSelected = event;
 }
 
 }
