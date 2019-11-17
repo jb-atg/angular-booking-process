@@ -31,28 +31,29 @@ display: flex;
     align-content: start;
 
   &.active {
-     background: var(--primary-color);
+     background: var(--accent-color);
     overflow:hidden;
       transition: all .4s cubic-bezier(.25,.8,.25,1);
 
 span,i,div {
 :not(button) {
-color:#fff!important;
+color:var(--text-accent-darker-color)!important;
 }
 
 &.mat-title {
-  color:#fff!important;
+  color:var(--text-accent-darker-color)!important;
 }
 }
   }
 
 .promo-description {
   white-space:normal;
+  margin-top:.5rem;
 }
 
 &.active {
 .promo-description {
-color:#fff!important;
+color:var(--text-accent-darker-color)!important;
 }
 }
 
