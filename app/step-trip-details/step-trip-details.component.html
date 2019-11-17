@@ -2,6 +2,16 @@
 	<div class="scroll-content-inner">
 		<app-promotion-selection (hasAddOn)="hasAddOn($event)" ></app-promotion-selection>
 		<app-add-on-selection [class.active]="addOn"></app-add-on-selection>
+
+<div class="p-1" innerAligh="spaceBetween middle">
+  <div class="mat-headline">Bedding Type</div>
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle value="bold">Single</mat-button-toggle>
+  <mat-button-toggle value="italic">Twin</mat-button-toggle>
+  <mat-button-toggle value="underline">Double</mat-button-toggle>
+</mat-button-toggle-group>
+  </div>
+
 		<app-cabin-selection></app-cabin-selection>
 	</div>
 </div>
