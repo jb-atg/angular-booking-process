@@ -7,7 +7,7 @@
 			<app-promo-badge></app-promo-badge>
 			<div class="inner-toolbar">
 			</div>
-			<button mat-flat-button color="light" (click)="collapsed = !collapsed">Reserve Place <i class="material-icons">navigate_next</i></button>
+			<button mat-flat-button color="light" (click)="collapsed = !collapsed">Reserve Place</button>
 		</ng-container>
 
 
@@ -31,23 +31,27 @@
 		<button *ngIf="!minimised"  class="minimise-button" mat-button (click)="minimised = !minimised"><i class="material-icons">keyboard_arrow_up</i>View Tour</button>
 		<button *ngIf="minimised" class="minimise-button" mat-flat-button (click)="minimised = !minimised" color="primary"><i class="material-icons">keyboard_arrow_down</i>Back to Booking</button>
     <button *ngIf="!minimised"  mat-flat-button class="cancel-button" color="warn" (click)="collapsed = !collapsed">Cancel Booking <i class="material-icons">close</i></button>
-		<mat-horizontal-stepper [linear]="true" #stepper >
+		<mat-horizontal-stepper [linear]="true" #stepper (selectionChange)="stepperChange($event)">
 			<mat-step>
-				<ng-template matStepLabel> <span class="mat-subheading-1 step-title">Select a Departure Date</span> </ng-template>
-				<app-step-departures data-simplebar></app-step-departures>
+				<ng-template matStepLabel> 
+          <span *ngIf="selectedStep != 0" class="step-title">Select a Departure Date</span> 
+          <span *ngIf="selectedStep == 0" class="mat-headline">Select a Departure Date</span> 
+          </ng-template>
+				<app-step-departures></app-step-departures>
 			</mat-step>
 			<mat-step>
-				<ng-template matStepLabel> <span class="mat-subheading-1 step-title">Trip Details</span></ng-template>
+				<ng-template matStepLabel> 
+          <span  *ngIf="selectedStep != 1"  class="step-title">Trip Details</span>
+          <span  *ngIf="selectedStep == 1"  class="mat-headline">Trip Details</span>
+          </ng-template>
 				<app-step-departures></app-step-departures>
 			</mat-step>
 
 			<mat-step>
-				<ng-template matStepLabel><span class="mat-subheading-1 step-title">Passenger Details</span></ng-template>
-				<app-step-departures></app-step-departures>
-			</mat-step>
-
-			<mat-step>
-				<ng-template matStepLabel><span class="mat-subheading-1 step-title">Booking Complete</span></ng-template>
+				<ng-template matStepLabel>
+          <span  *ngIf="selectedStep != 2"  class="step-title">Passenger Details</span>
+          <span  *ngIf="selectedStep == 2"  class="mat-headline">Passenger Details</span>
+          </ng-template>
 				<app-step-departures></app-step-departures>
 			</mat-step>
 		</mat-horizontal-stepper>

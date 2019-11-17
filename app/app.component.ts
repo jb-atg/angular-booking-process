@@ -13,12 +13,18 @@ export class AppComponent {
 @HostBinding('class.minimised') minimised:boolean = false;
 @ViewChild('stepper', {static: false}) stepper:any;
 
+selectedStep:number = 0;
+
 nextStep() {
 this.stepper.next();
 }
 
 previousStep() {
 this.stepper.previous();
+}
+
+stepperChange(event) {
+this.selectedStep =  event.selectedIndex;
 }
 
 }

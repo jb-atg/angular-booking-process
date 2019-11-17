@@ -10,7 +10,7 @@ export class StepDeparturesComponent implements OnInit {
     {
       id: 0,
       label: "Jan",
-      numberOfDepartures: 5,
+      numberOfDepartures: 2,
       isInRange: false,
       active: false
     },

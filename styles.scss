@@ -27,6 +27,10 @@ body {
 
 app-component {
 
+    &::-webkit-scrollbar {
+    display: none;
+}
+
   margin: 0;
   -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
