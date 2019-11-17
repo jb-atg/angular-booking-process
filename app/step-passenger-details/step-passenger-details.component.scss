@@ -21,6 +21,17 @@
       height:100%;
       background:rgba(#fff,.75);
       padding: 2rem 0 2rem 0;
+
+        .panel-grid{
+          display: grid;
+grid-template-columns: 1fr 1.75fr;
+grid-template-rows: 1fr;
+grid-column-gap: 16px;
+grid-row-gap: 0px;
+        }
+
+
+
     }
 
   }
