@@ -1,7 +1,7 @@
 <div class="tile" (click)="!departure.active ? activate(): undefined"
 	[class.active]="departure.active && departure.month.active">
 	<div class="w-100">
-		<div innerAlign="spaceBetween middle">
+		<div innerAlign="spaceBetween top">
 			<div innerAlign="left middle" class="mat-headline">
 				{{departure.begin | date:'EEE dd'}}
 				<i class="material-icons">keyboard_arrow_right</i>
