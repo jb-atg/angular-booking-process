@@ -7,7 +7,7 @@
   transition: all .4s cubic-bezier(.25,.8,.25,1);
 
   &.active {
-     padding:0rem 1rem .5rem 64px;
+     padding:0rem 1rem 2rem 64px;
       max-height:100vh;
            transition: all .4s cubic-bezier(.25,.8,.25,1);
   }

@@ -58,6 +58,7 @@ import { PromotionSelectionComponent } from './step-trip-details/promotion-selec
 import { CabinSelectionComponent } from './step-trip-details/cabin-selection/cabin-selection.component';
 import { AddOnSelectionComponent } from './step-trip-details/add-on-selection/add-on-selection.component';
 import { StepPassengerDetailsComponent } from './step-passenger-details/step-passenger-details.component';
+import { PassengerDetailsFormComponent } from './step-passenger-details/passenger-details-form/passenger-details-form.component';
 
 
 @NgModule({
@@ -112,7 +113,7 @@ import { StepPassengerDetailsComponent } from './step-passenger-details/step-pas
     NgMarqueeModule 
   ],
   entryComponents: [AppComponent],
-  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent, StepTripDetailsComponent, PromotionSelectionComponent, CabinSelectionComponent, AddOnSelectionComponent, StepPassengerDetailsComponent],
+  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent, StepTripDetailsComponent, PromotionSelectionComponent, CabinSelectionComponent, AddOnSelectionComponent, StepPassengerDetailsComponent, PassengerDetailsFormComponent],
   bootstrap: [AppComponent],
   providers: []
 })
