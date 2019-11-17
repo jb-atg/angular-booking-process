@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./step-departures.component.scss"]
 })
 export class StepDeparturesComponent implements OnInit {
-    @Output() isActive = new EventEmitter();
+  @Output() isActive = new EventEmitter();
   months = [
     {
       id: 0,
@@ -107,18 +107,17 @@ export class StepDeparturesComponent implements OnInit {
 
   setActive(i) {
     this.months.forEach(month => (month.active = false));
-    if(this.months[i]) {
-    this.isActive.emit(true);
-    this.months[i].active = true;
-    } else {
-    this.getAllNotActive();
+    if (this.months[i]) {
+      this.isActive.emit(true);
+      this.months[i].active = true;
     }
+
+    this.getAllNotActive();
   }
 
   getAllNotActive() {
-   
- let allNotActive = this.months.every(month => month.active == false); 
+    let allNotActive = this.months.every(month => month.active == false);
     this.allNotActive = allNotActive;
-     this.isActive.emit(false);
-    }
+    this.isActive.emit(false);
+  }
 }
