@@ -117,7 +117,7 @@ export class StepDeparturesComponent implements OnInit {
 
   getAllNotActive() {
     let allNotActive = this.months.every(month => month.active == false);
+    !allNotActive ? null :    this.isActive.emit(false);
     this.allNotActive = allNotActive;
-    this.isActive.emit(false);
   }
 }
