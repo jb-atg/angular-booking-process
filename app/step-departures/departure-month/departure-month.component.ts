@@ -97,9 +97,7 @@ export class DepartureMonthComponent implements OnInit, OnChanges {
     this.isActive.emit(this.month.id);
   }
 
-notActive() {
-
-}
+allNotActive() {let allNotActive = this.departures.every(departure => departure.active == false);}
 
 }
 

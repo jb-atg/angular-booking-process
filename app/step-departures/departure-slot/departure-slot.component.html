@@ -1,19 +1,27 @@
-<div class="tile" (click)="activate()"  [class.active]="departure.active && departure.month.active">
-  <div class="w-100">
-	<div innerAlign="left middle" class="mat-headline">
-		{{departure.begin | date:'EEE dd'}}
-		<i class="material-icons">keyboard_arrow_right</i>
-		{{!departure.endsNextMonth ? (departure.end | date:'EEE dd') : (departure.end | date:'EEE dd LLL') }}
-	</div>
-	<div class="tile-line pt-1 pb-1" innerAlign="left middle">
-		<span *ngIf="departure.promotions.length == 0" class="mat-body-2">No Promotions Available</span>
-    <div class="promos" [class.active]="departure.active && departure.month.active">
-      <span *ngFor="let promo of departure.promotions; let i = index;" class="promo mr-1" innerAlign="left middle">
-          <i *ngIf="departure.active && departure.month.active" class="material-icons">info_outline</i>
+<div class="tile" (click)="activate()" 
+[class.active]="departure.active && departure.month.active"
+[class.other-active]="departure.month.active && !allNotActive && !departure.active">
+	<div class="w-100">
+    <div innerAlign="spaceBetween middle">
+		<div innerAlign="left middle" class="mat-headline">
+			{{departure.begin | date:'EEE dd'}}
+			<i class="material-icons">keyboard_arrow_right</i>
+			{{!departure.endsNextMonth ? (departure.end | date:'EEE dd') : (departure.end | date:'EEE dd LLL') }}
+		</div>
+
+   <i *ngIf="!departure.active || !departure.month.active" class="material-icons.md-36 info">info</i>
+
+    </div>
+		<div class="tile-line pt-1 pb-1" innerAlign="left middle">
+			<span *ngIf="departure.promotions.length == 0" class="mat-body-2">No Promotions Available</span>
+			<div class="promos" [class.active]="departure.active && departure.month.active">
+       <div class="w-100">Available Promotions</div>
+				<span *ngFor="let promo of departure.promotions; let i = index;" class="promo mr-1" innerAlign="left middle">
+          <i *ngIf="departure.active && departure.month.active" matTooltip="Applies to Categories: C, C+, D, D+ E " class="material-icons">info_outline</i>
           <span class="mat-body-2">{{promo.label}}</span></span>
-        </div>
+			</div>
+		</div>
 	</div>
-</div>
 
 
 	<span class="mat-title">

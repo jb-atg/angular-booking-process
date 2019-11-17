@@ -29,8 +29,10 @@ display: flex;
 span,i,div{
 color:#fff!important;
 }
+  }
 
-
+  &.other-active {
+opacity:0.75;
   }
 }
 .promos {

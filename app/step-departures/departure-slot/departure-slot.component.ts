@@ -8,6 +8,7 @@ import { Component, OnInit, Input, OnChanges,EventEmitter,Output } from "@angula
 export class DepartureSlotComponent implements OnInit, OnChanges {
   @Input() departure;
   @Input() index;
+  @Input() allNotActive;
   @Output() isActive = new EventEmitter();
   constructor() {}
 
@@ -73,4 +74,6 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
     this.departure.promotions.forEach(promo => (promo.active = false));
     this.departure.promotions[i].active = true;
   }
+
+  
 }
