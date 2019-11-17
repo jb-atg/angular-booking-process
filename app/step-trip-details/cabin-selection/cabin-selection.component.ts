@@ -9,7 +9,7 @@ export class CabinSelectionComponent implements OnInit {
    cabins = [
     { value: 1, label: "B+" , active:false},
     { value: 2, label: "C" , active:false},
-    { value: 3, label: "CC" , active:false},
+    { value: 3, label: "CC" , active:true},
     { value: 4, label: "D" , active:false},
     { value: 5, label: "DD" , active:false},
     { value: 6, label: "E" , active:false},

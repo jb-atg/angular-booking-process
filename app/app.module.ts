@@ -56,6 +56,7 @@ import { DepartureSlotComponent } from './step-departures/departure-slot/departu
 import { StepTripDetailsComponent } from './step-trip-details/step-trip-details.component';
 import { PromotionSelectionComponent } from './step-trip-details/promotion-selection/promotion-selection.component';
 import { CabinSelectionComponent } from './step-trip-details/cabin-selection/cabin-selection.component';
+import { AddOnSelectionComponent } from './step-trip-details/add-on-selection/add-on-selection.component';
 
 
 @NgModule({
@@ -110,7 +111,7 @@ import { CabinSelectionComponent } from './step-trip-details/cabin-selection/cab
     NgMarqueeModule 
   ],
   entryComponents: [AppComponent],
-  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent, StepTripDetailsComponent, PromotionSelectionComponent, CabinSelectionComponent],
+  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent, StepTripDetailsComponent, PromotionSelectionComponent, CabinSelectionComponent, AddOnSelectionComponent],
   bootstrap: [AppComponent],
   providers: []
 })
