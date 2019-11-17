@@ -53,6 +53,8 @@ import { PromoBadgeComponent } from './promo-badge/promo-badge.component';
 import { CountdownModule } from 'ngx-countdown';
 import { DepartureMonthComponent } from './step-departures/departure-month/departure-month.component';
 import { DepartureSlotComponent } from './step-departures/departure-slot/departure-slot.component';
+import { StepTripDetailsComponent } from './step-trip-details/step-trip-details.component';
+import { PromotionSelectionComponent } from './step-trip-details/promotion-selection/promotion-selection.component';
 
 
 @NgModule({
@@ -107,7 +109,7 @@ import { DepartureSlotComponent } from './step-departures/departure-slot/departu
     NgMarqueeModule 
   ],
   entryComponents: [AppComponent],
-  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent],
+  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent, StepTripDetailsComponent, PromotionSelectionComponent],
   bootstrap: [AppComponent],
   providers: []
 })
