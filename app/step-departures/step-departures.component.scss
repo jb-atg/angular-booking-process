@@ -24,23 +24,22 @@
         margin:0!important;
       }
 
+  
+
       mat-form-field {
             transform: scale(.85);
     transform-origin: left;
     margin-right: -32px;
      
-     [matPrefix] {
-           display: flex;
-    margin-top: -.75em;
-    margin-left: -.75em;
-    width: 36px;
-    justify-content: center;
-    color:var(--primary-color);
-
-     }
      
       }
 
     }
+
+
+    .mat-title {
+          background:rgba(#fff,.75);
+      }
+
   }
 }

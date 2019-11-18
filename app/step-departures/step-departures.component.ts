@@ -90,7 +90,7 @@ export class StepDeparturesComponent implements OnInit {
     dateRange: undefined,
     promotions: { options: this.promotions, selectedOptions: undefined },
     travellers: { selectedOption: 2 },
-    bedding: { options: this.bedding, selectedOption: undefined },
+    bedding: { options: this.bedding, selectedOption:2,  selectedOptions: ' ', },
     cabins: { options: this.cabins, selectedOptions: undefined },
     sort: { options: this.sort, selectedOption: undefined }
   };
