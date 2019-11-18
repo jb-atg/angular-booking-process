@@ -10,7 +10,7 @@
 <drag-scroll [drag-scroll-y-disabled]="true" [snap-disabled]="true" scrollbar-hidden="true" class="no-select">
 	<ng-container *ngFor="let cabin of cabins; let even = even; let i = index;">
 		<div class="promo" drag-scroll-item>
-			<div class="tile" (click)="activateCabin(i)" [class.active]="cabin.active">
+			<div class="tile" (mousedown)="activateCabin(i)" [class.active]="cabin.active">
 				<div innerAlign="spaceBetween top" class="w-100">
 					<div>
 						<span class="mat-headline">Cabin Category {{cabin.label}}</span>
@@ -21,7 +21,7 @@
 				</div>
 
 				<span class="promo-description">
-         Put useful information about what cabin categories actualy means here. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
         </span>
 			</div>
 

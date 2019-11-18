@@ -31,6 +31,12 @@ app-component {
     display: none;
 }
 
+.drag-scroll-content {
+    &::-webkit-scrollbar {
+    display: none;
+}
+}
+
   margin: 0;
   -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;

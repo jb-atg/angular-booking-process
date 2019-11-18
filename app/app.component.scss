@@ -10,6 +10,10 @@
   border-top-right-radius: 4px;
   transition: top .4s cubic-bezier(.25,.8,.25,1);
 
+      &::-webkit-scrollbar {
+    display: none;
+}
+
   &.collapsed, &.minimised {
   top:calc(100vh - 64px);
     .cdk-overlay-backdrop {

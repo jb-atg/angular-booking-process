@@ -4,7 +4,7 @@
 <drag-scroll [drag-scroll-y-disabled]="true" [snap-disabled]="true" scrollbar-hidden="true" class="no-select">
 	<ng-container *ngFor="let promo of promotions; let even = even; let i = index;">
 		<div class="promo" drag-scroll-item>
-			<div class="tile" (click)="activatePromo(i)" [class.active]="promo.active">
+			<div class="tile" (mousedown)="activatePromo(i)" [class.active]="promo.active">
 				<div innerAlign="spaceBetween top" class="w-100">
 					<div>
 						<span class="mat-headline">{{promo.label}}</span>
@@ -16,7 +16,7 @@
 				</div>
 
 				<span class="promo-description">
-          Convoluted promotion description goes here. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </span>
 
 			</div>

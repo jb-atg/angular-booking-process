@@ -73,6 +73,7 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
   }
 
   activate() {
+    this.departure.active = true;
     this.isActive.emit(this.index);
   }
 

@@ -7,6 +7,10 @@
   box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
   background:var(--primary-lighter-color);
 
+      &::-webkit-scrollbar {
+    display: none;
+}
+
 
   .scroll-content {
     min-height:calc(100vh - 228px);

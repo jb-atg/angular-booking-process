@@ -9,7 +9,7 @@ import {Component, HostBinding,ViewChild} from '@angular/core';
   templateUrl: 'app.component.html',
 })
 export class AppComponent {
-@HostBinding('class.collapsed') collapsed:boolean = false;
+@HostBinding('class.collapsed') collapsed:boolean = true;
 @HostBinding('class.minimised') minimised:boolean = false;
 @ViewChild('stepper', {static: false}) stepper:any;
 

@@ -4,7 +4,10 @@ import {
   Input,
   Output,
   EventEmitter,
-  OnChanges
+  OnChanges,
+  ViewChild,
+  AfterViewInit,
+  Renderer2
 } from "@angular/core";
 
 @Component({
@@ -12,21 +15,34 @@ import {
   templateUrl: "./departure-month.component.html",
   styleUrls: ["./departure-month.component.scss"]
 })
-export class DepartureMonthComponent implements OnInit, OnChanges {
+export class DepartureMonthComponent
+  implements OnInit, OnChanges, AfterViewInit {
   @Input() month: any;
   @Input() filters: any;
   @Output() isActive = new EventEmitter();
+  @ViewChild("dragScroll", { static: false }) dragScroll;
 
   departures = [];
   allNotActive = true;
 
-  constructor() {}
+  constructor(public renderer: Renderer2) {}
 
   ngOnInit() {
     this.generateDepartures();
   }
 
   ngOnChanges() {}
+
+  ngAfterViewInit() {
+    /*
+    this.dragScroll._onDragStartListener = this.renderer.listen(
+      "document",
+      "dragstart",
+      e => {
+        // e.preventDefault();
+      }
+    );*/
+  }
 
   generateDepartures() {
     let numberOfDepartures = this.month.numberOfDepartures;
@@ -92,13 +108,12 @@ export class DepartureMonthComponent implements OnInit, OnChanges {
   }
 
   setActive(i) {
-
     this.departures.forEach(departure => (departure.active = false));
     if (this.departures[i]) {
       this.departures[i].active = true;
       this.isActive.emit(this.month.id);
     } else {
-          this.isActive.emit(-1);
+      this.isActive.emit(-1);
     }
     this.getAllNotActive();
   }
@@ -108,6 +123,25 @@ export class DepartureMonthComponent implements OnInit, OnChanges {
       departure => departure.active == false
     );
     this.allNotActive = allNotActive;
+  }
+
+  dragTimeout;
+  itemHovered = false;
+
+
+  mouseOver(event) {
+    // Set a timeout to run after scrolling ends
+    this.dragTimeout = setTimeout(()=> {
+      // Run the callback
+      this.itemHovered = true;
+      console.log('over');
+    }, 100);
+  }
+
+  mouseOut(event) {
+     this.itemHovered = false;
+     console.log('out');
+     window.clearTimeout(this.dragTimeout);
   }
 }
 

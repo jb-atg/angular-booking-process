@@ -1,4 +1,4 @@
-<div class="tile" (click)="!departure.active ? activate(): undefined"
+<div class="tile" (mousedown)="!departure.active ? activate(): undefined"
 	[class.active]="departure.active && departure.month.active">
 	<div class="w-100">
 		<div innerAlign="spaceBetween top">
@@ -9,7 +9,7 @@
 			</div>
 
 			<i *ngIf="!departure.active || !departure.month.active" class="material-icons md-36 tile-info">info</i>
-			<i (click)="deactivate()" *ngIf="departure.active && departure.month.active" class="material-icons md-36 info">cancel</i>
+			<i (mousedown)="deactivate()" *ngIf="departure.active && departure.month.active" class="material-icons md-36 info">cancel</i>
 
 		</div>
 		<div class="tile-line pt-1 pb-1" innerAlign="left middle">
