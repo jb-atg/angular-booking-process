@@ -1,53 +1,50 @@
 <div class="scroll-content">
-	<div class="w-100 filters mat-elevation-z2" innerAlign="left middle">
-
-		<div>
-			<div innerAlign="center middle" (click)="logFilters()">
+	<div class="w-100 filters mat-elevation-z2" innerAlign="spaceBetween middle">
+		<div innerAlign="center middle" >
+			<button mat-stroked-button class="mr-1">View Cabins</button>
+			<button mat-stroked-button>Promotion Information</button>
+		</div>
+		<div class="pl-1 pr-1" innerAlign="left middle">
+			<div class="filter-icon" innerAlign="center middle" (click)="logFilters()">
 				<i class="material-icons">filter_list_alt</i>
 				<span class="mat-subheading-1 pr-1">Filters</span>
 			</div>
-		</div>
 
 
-		<mat-form-field appearance="outline" class="pr-1" [class.filled]="filters.dateRange">
-			<mat-label>Departure Date</mat-label>
-			<input matInput [(ngModel)]="filters.dateRange"
+			<mat-form-field appearance="outline" class="pr-1" [class.filled]="filters.dateRange"
+				(click)="range.opened? range.close() : range.open()">
+				<mat-label>Departure Date</mat-label>
+				<input matInput readonly [(ngModel)]="filters.dateRange"
                    placeholder="Choose a date"
-                   [satDatepicker]="picker2">
-			<sat-datepicker #picker2 [rangeMode]="true">
-			</sat-datepicker>
-			<sat-datepicker-toggle matSuffix [for]="picker2"></sat-datepicker-toggle>
-		</mat-form-field>
-
-		<mat-form-field appearance="outline" class="pr-1" [class.filled]="filters.bedding.selectedOption">
-			<mat-label>Passengers</mat-label>
-			<input matInput min="1" type="number" [(ngModel)]="filters.travellers.selectedOption">
-
-		</mat-form-field>
-			<button mat-icon-button color="primary">
-         <i class="material-icons">info</i>
-      </button>
-
-			<mat-form-field *ngIf="filters.travellers.selectedOption <= 2" appearance="outline" class="pr-1"
-				[class.filled]="filters.bedding.selectedOption">
-				<mat-label>Bedding</mat-label>
-				<mat-select [(ngModel)]="filters.bedding.selectedOption">
-					<mat-option *ngFor="let bedding of filters.bedding.options" [value]="bedding.value">
-						{{bedding.label}}
-					</mat-option>
-				</mat-select>
+                   [satDatepicker]="range">
+				<sat-datepicker #range [rangeMode]="true">
+				</sat-datepicker>
+				<span matSuffix><i class="material-icons">date_range</i></span>
 			</mat-form-field>
 
-			<mat-form-field *ngIf="filters.travellers.selectedOption > 2" appearance="outline" class="pr-1" [class.filled]="filters.bedding.selectedOption">
-				<mat-label>Bedding</mat-label>
-				<input matInput readonly [(ngModel)]="filters.bedding.selectedOptions">
-           <span matSuffix>.00</span>
+			<mat-form-field appearance="outline" class="pr-1" [class.filled]="filters.bedding.selectedOption">
+				<mat-label>Passengers</mat-label>
+				<input matInput min="1" type="number" [(ngModel)]="filters.travellers.selectedOption">
+
 		</mat-form-field>
 
+				<mat-form-field *ngIf="filters.travellers.selectedOption <= 2" appearance="outline" class="pr-1"
+					[class.filled]="filters.bedding.selectedOption">
+					<mat-label>Bedding</mat-label>
+					<mat-select [(ngModel)]="filters.bedding.selectedOption">
+						<mat-option *ngFor="let bedding of filters.bedding.options" [value]="bedding.value">
+							{{bedding.label}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
 
-				<button mat-icon-button color="primary">
-         <i class="material-icons">info</i>
-      </button>
+				<mat-form-field *ngIf="filters.travellers.selectedOption > 2" appearance="outline" class="pr-1"
+					[class.filled]="filters.bedding.selectedOption">
+					<mat-label>Bedding</mat-label>
+					<input matInput readonly="true" [(ngModel)]="filters.bedding.selectedOptions">
+					<span matSuffix><i class="material-icons">open_in_new</i></span>
+				</mat-form-field>
+
 				<mat-form-field appearance="outline" class="pr-1"
 					[class.filled]="filters.cabins.selectedOptions?.length > 0">
 					<mat-label>Cabin</mat-label>
@@ -57,10 +54,6 @@
 						</mat-option>
 					</mat-select>
 				</mat-form-field>
-
-				<button mat-icon-button color="primary">
-         <i class="material-icons">info</i>
-      </button>
 
 				<mat-form-field appearance="outline" class="pr-1"
 					[class.filled]="filters.promotions?.selectedOptions?.length > 0">
@@ -72,21 +65,18 @@
 					</mat-select>
 				</mat-form-field>
 
-
-				<mat-form-field appearance="outline" [class.filled]="filters.sort.selectedOption">
-					<mat-label>Sort</mat-label>
-					<mat-select [(ngModel)]="filters.sort.selectedOption">
-						<mat-option *ngFor="let sortOption of filters.sort.options" [value]="sortOption.value">
-							{{sortOption.label}}
-						</mat-option>
-					</mat-select>
-				</mat-form-field>
-
+		</div>
 
 
 	</div>
 
-	<div class="mat-title pl-1 pt-1 pb-1">Showing results for two adults sharing a double room.</div>
+	<div class="info-bar" innerAlign="spaceBetween middle">
+		<div class="mat-title pl-1 pt-1 pb-1">Showing results for two adults sharing a double room.</div>
+		<div>
+
+		</div>
+	</div>
+
 	<ng-container *ngFor="let month of months; let even = even;" ;>
 		<app-departure-month [filters]="filters" [month]="month" [class.even]="even" (isActive)="setActive($event)"
 			[class.active]="month.active" [class.other-active]="!month.active && !allNotActive">

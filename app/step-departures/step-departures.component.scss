@@ -11,7 +11,7 @@
 }
 
   .scroll-content {
-    max-width:calc(100vw - 33px);
+    max-width: calc(100vw - 1rem);
     overflow:hidden;
     position:relative;
 
@@ -20,11 +20,14 @@
       background:#fff;
       flex-wrap:nowrap;
           height: 56px;
+
+        > *, .filter-icon {
+          flex-wrap:nowrap;
+        }
+
       .mat-subheading-1 {
         margin:0!important;
       }
-
-  
 
       mat-form-field {
             transform: scale(.85);
@@ -37,7 +40,7 @@
     }
 
 
-    .mat-title {
+    .info-bar {
           background:rgba(#fff,.75);
       }
 

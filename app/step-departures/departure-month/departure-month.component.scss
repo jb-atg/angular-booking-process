@@ -1,6 +1,6 @@
 :host() {
 display: grid; 
-grid-template-columns: 100px calc(100vw - 150px);
+grid-template-columns: 100px calc(100vw - 100px - 1rem - 16px);
 grid-template-rows: minmax(192px, max-content); 
 grid-column-gap: 16px;
 grid-row-gap: 0px;
@@ -13,8 +13,11 @@ width:100%;
   background:rgba(#f3f3f3,.75);
 }
 
+drag-scroll-wrapper {
+  position:relative;
 drag-scroll {
   width:100%;
   height:100%;
+}
 }
 }
