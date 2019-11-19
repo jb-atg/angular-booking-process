@@ -4,7 +4,8 @@ import {
   Input,
   OnChanges,
   EventEmitter,
-  Output
+  Output,
+  ViewChild
 } from "@angular/core";
 
 @Component({
@@ -88,4 +89,9 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
     this.departure.promotions.forEach(promo => (promo.active = false));
     this.departure.promotions[i].active = true;
   }
+
+nextStep() {
+
+}
+
 }

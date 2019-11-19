@@ -7,13 +7,11 @@ import {
   OnChanges,
   ViewChild,
   AfterViewInit,
-  Renderer2
+  Renderer2,
+  HostListener
 } from "@angular/core";
 
-import {
-  DragScrollComponent
-} from 'ngx-drag-scroll';
-
+import { DragScrollComponent } from "ngx-drag-scroll";
 
 @Component({
   selector: "app-departure-month",
@@ -26,7 +24,16 @@ export class DepartureMonthComponent
   @Input() filters: any;
   @Output() isActive = new EventEmitter();
   @ViewChild("dragScroll", { static: false }) dragScroll: DragScrollComponent;
+  @HostListener("window:mousemove", ["$event"])
+  onScroll(e) {
+   const delta = Math.sign(e.deltaY);
+    this.mouseWheel = true;
+  }
+  mouseWheel:boolean = false;
 
+  hasReachedLeft: boolean = false;
+  hasReachedRight: boolean = false;
+  isOverflown;
   departures = [];
   allNotActive = true;
 
@@ -39,6 +46,7 @@ export class DepartureMonthComponent
   ngOnChanges() {}
 
   ngAfterViewInit() {
+
   }
 
   generateDepartures() {
@@ -122,13 +130,19 @@ export class DepartureMonthComponent
     this.allNotActive = allNotActive;
   }
 
-
   moveLeft() {
     this.dragScroll.moveLeft();
   }
 
   moveRight() {
-   this.dragScroll.moveRight();
+    this.dragScroll.moveRight();
   }
 
+  reachLeft(event) {
+    this.hasReachedLeft = event;
+  }
+
+  reachRight(event) {
+    this.hasReachedRight = event;
+  }
 }

@@ -28,7 +28,7 @@
   From {{departure.price | currency}} AUD pp
   </span>
 
-		<button class="select-button w-100 mt-1" matStepperNext [class.active]="departure.active && departure.month.active"  mat-flat-button>Select Departure
+		<button (mousedown)="nextStep(matStepperNext)" class="select-button w-100 mt-1" matStepperNext [class.active]="departure.active && departure.month.active"  mat-flat-button>Select Departure
     <i class="material-icons">navigate_next</i>
     </button>
 
