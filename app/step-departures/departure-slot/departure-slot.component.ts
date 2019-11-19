@@ -68,7 +68,7 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
   inRange(startDate, endDate) {
     let filterStartDate = 0;
     let filterEndDate = 0;
-
+   return startDate >= filterStartDate && endDate <= filterEndDate;
     // Illustration:
     //
     // filterStartDate                      filterEndDate
@@ -79,7 +79,6 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
     //         ^                      ^
     //         startDate              endDate
 
-    return startDate >= filterStartDate && endDate <= filterEndDate;
   }
 
 }
