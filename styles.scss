@@ -56,12 +56,6 @@ app-component {
   -webkit-font-smoothing: antialiased;
 }
 
-ng-marquee{overflow:hidden;};
-
-ng-marquee:not(.active) {
-.ng-marquee-wrapper  > div {animation:none!important; padding:0!important;}
-}
-
 .no-select {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -71,11 +65,6 @@ ng-marquee:not(.active) {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Opera and Firefox */
 }
-
-    app-departure-month.other-active  .tile:not(.active), 
-    app-departure-month.active  .tile:not(.active) {
-opacity:0.6;
-  }
 
 .w-100 {
   width:100%;

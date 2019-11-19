@@ -16,7 +16,6 @@ import {
 export class DepartureSlotComponent implements OnInit, OnChanges {
   @Input() departure;
   @Input() index;
-  @Input() allNotActive;
   @Output() isActive = new EventEmitter();
   constructor() {}
 
@@ -56,6 +55,16 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
     }
   }
 
+  activate() {
+    this.isActive.emit(this.index);
+  }
+
+  deactivate() {
+    setTimeout(() => {
+      this.isActive.emit(-1);
+    }, 100);
+  }
+
   inRange(startDate, endDate) {
     let filterStartDate = 0;
     let filterEndDate = 0;
@@ -72,26 +81,5 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
 
     return startDate >= filterStartDate && endDate <= filterEndDate;
   }
-
-  activate() {
-    this.departure.active = true;
-    this.isActive.emit(this.index);
-  }
-
-  deactivate() {
-    setTimeout(() => {
-      //<<<---    using ()=> syntax
-      this.isActive.emit(-1);
-    }, 100);
-  }
-
-  activatePromo(i) {
-    this.departure.promotions.forEach(promo => (promo.active = false));
-    this.departure.promotions[i].active = true;
-  }
-
-nextStep() {
-
-}
 
 }

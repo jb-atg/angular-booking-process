@@ -7,53 +7,61 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 })
 export class StepDeparturesComponent implements OnInit {
   @Output() isActive = new EventEmitter();
+  departureSelected:boolean = false;
   months = [
     {
-      id: 0,
+      index: 0,
       label: "Jan",
       numberOfDepartures: 2,
+      departures: [],
       isInRange: false,
       active: false
     },
     {
-      id: 1,
+      index: 1,
       label: "Feb",
       numberOfDepartures: 1,
+      departures: [],
       isInRange: false,
       active: false
     },
     {
-      id: 2,
+      index: 2,
       label: "Mar",
       numberOfDepartures: 8,
+      departures: [],
       isInRange: false,
       active: false
     },
     {
-      id: 3,
+      index: 3,
       label: "Apr",
       numberOfDepartures: 1,
+      departures: [],
       isInRange: false,
       active: false
     },
     {
-      id: 4,
+      index: 4,
       label: "May",
       numberOfDepartures: 10,
+      departures: [],
       isInRange: false,
       active: false
     },
     {
-      id: 5,
+      index: 5,
       label: "Jun",
       numberOfDepartures: 2,
+      departures: [],
       isInRange: false,
       active: false
     },
     {
-      id: 6,
+      index: 6,
       label: "Jul",
       numberOfDepartures: 1,
+      departures: [],
       isInRange: false,
       active: false
     }
@@ -90,12 +98,10 @@ export class StepDeparturesComponent implements OnInit {
     dateRange: undefined,
     promotions: { options: this.promotions, selectedOptions: undefined },
     travellers: { selectedOption: 2 },
-    bedding: { options: this.bedding, selectedOption:2,  selectedOptions: ' ', },
+    bedding: { options: this.bedding, selectedOption: 2, selectedOptions: " " },
     cabins: { options: this.cabins, selectedOptions: undefined },
     sort: { options: this.sort, selectedOption: undefined }
   };
-
-  allNotActive = true;
 
   logFilters() {
     console.log(this.filters);
@@ -103,21 +109,92 @@ export class StepDeparturesComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
-
-  setActive(i) {
-    this.months.forEach(month => (month.active = false));
-    if (this.months[i]) {
-      this.isActive.emit(true);
-      this.months[i].active = true;
-    }
-
-    this.getAllNotActive();
+  ngOnInit() {
+    this.generateDepartures();
   }
 
-  getAllNotActive() {
-    let allNotActive = this.months.every(month => month.active == false);
-    !allNotActive ? null :    this.isActive.emit(false);
-    this.allNotActive = allNotActive;
+  generateDepartures() {
+    this.months.forEach(month => {
+      let numberOfDepartures = month.numberOfDepartures;
+      let i;
+      for (i = 0; i < numberOfDepartures; i++) {
+        let departure = {
+          year: 2020,
+          month: month.index,
+          begin: undefined,
+          end: undefined,
+          isInRange: true,
+          promotions: [],
+          travellers: [],
+          bedding: [],
+          cabins: [],
+          price: undefined,
+          active: false,
+          limited: false,
+          filters: this.filters
+        };
+        this.generateDates(departure);
+        month.departures.push(departure);
+
+        if (month.departures.length == numberOfDepartures) {
+          month.departures = month.departures.sort(
+            this.sortDeparturesByDate("begin")
+          );
+        }
+      }
+    });
+  }
+
+  generateDates(departure) {
+    let month = departure.month;
+    let begin = this.randomDayGenerator(1, 28);
+    let end = begin + 15;
+    if (end > 28) {
+      end = end - 28;
+      departure.begin = new Date(2020, month, begin, 0, 0, 0, 0);
+      departure.end = new Date(2020, month + 1, end, 0, 0, 0, 0);
+      departure.endsNextMonth = true;
+    } else {
+      departure.begin = new Date(2020, month, begin, 0, 0, 0, 0);
+      departure.end = new Date(2020, month, end, 0, 0, 0, 0);
+    }
+  }
+
+  randomDayGenerator(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  sortDeparturesByDate(property) {
+    var sortOrder = 1;
+    if (property[0] === "-") {
+      sortOrder = -1;
+      property = property.substr(1);
+    }
+    return function(a, b) {
+      var result =
+        a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+      return result * sortOrder;
+    };
+  }
+
+  setActive(active) {
+    let monthIndex = active.monthIndex;
+    let departureIndex = active.departureIndex;
+
+    this.months.forEach(month => {
+      month.active = false;
+      month.departures.forEach(departure => {
+        departure.active = false;
+      });
+    });
+
+    if (this.months[monthIndex].departures[departureIndex]) {
+      this.months[monthIndex].departures[departureIndex].active = true;
+      this.departureSelected = true;
+    } else {
+       this.departureSelected = false;
+    }
+
+    this.isActive.emit(this.departureSelected);
   }
 }

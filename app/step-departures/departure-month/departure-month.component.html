@@ -4,14 +4,14 @@
 <div class="drag-scroll-wrapper">
 	<drag-scroll #dragScroll  [drag-scroll-disabled]="mouseWheel" [drag-scroll-y-disabled]="true" [snap-disabled]="true" scrollbar-hidden="true"
 		(reachesLeftBound)="reachLeft($event)" (reachesRightBound)="reachRight($event)" class="no-select">
-		<app-departure-slot *ngFor="let dep of departures; let even = even; let i = index;" drag-scroll-item [index]="i"
-			[departure]="dep" [allNotActive]="allNotActive" (isActive)="setActive($event)"></app-departure-slot>
+		<app-departure-slot *ngFor="let dep of month.departures; let even = even; let i = index;" drag-scroll-item [index]="i"
+			[departure]="dep" (isActive)="setActive($event)"></app-departure-slot>
 	</drag-scroll>
-	<button *ngIf="!hasReachedLeft" class="move-left" mat-icon-button (click)="moveLeft()">
+	<button *ngIf="!hasReachedLeft" class="move-left" mat-icon-button (click)="dragScroll.moveLeft()">
   <i class="material-icons">chevron_left</i>
   </button>
 
-	<button *ngIf="!hasReachedRight" class="move-right"  mat-icon-button (click)="moveRight()">
+	<button *ngIf="!hasReachedRight" class="move-right"  mat-icon-button (click)="dragScroll.moveRight()">
   <i class="material-icons">chevron_right</i>
   </button>
 </div>
