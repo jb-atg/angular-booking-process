@@ -26,10 +26,10 @@ export class DepartureMonthComponent
   @ViewChild("dragScroll", { static: false }) dragScroll: DragScrollComponent;
   @HostListener("window:mousemove", ["$event"])
   onScroll(e) {
-   const delta = Math.sign(e.deltaY);
+    const delta = Math.sign(e.deltaY);
     this.mouseWheel = true;
   }
-  mouseWheel:boolean = false;
+  mouseWheel: boolean = false;
 
   hasReachedLeft: boolean = false;
   hasReachedRight: boolean = false;
@@ -45,9 +45,7 @@ export class DepartureMonthComponent
 
   ngOnChanges() {}
 
-  ngAfterViewInit() {
-
-  }
+  ngAfterViewInit() {}
 
   generateDepartures() {
     let numberOfDepartures = this.month.numberOfDepartures;
@@ -65,6 +63,7 @@ export class DepartureMonthComponent
         cabins: [],
         price: undefined,
         active: false,
+        limited: false,
         filters: this.filters
       };
       this.generateDates(departure);

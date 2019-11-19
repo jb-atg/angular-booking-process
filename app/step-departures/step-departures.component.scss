@@ -20,10 +20,13 @@
       background:#fff;
       flex-wrap:nowrap;
           height: 56px;
+           max-width:1600px;
 
         > *, .filter-icon {
           flex-wrap:nowrap;
         }
+
+       
 
       .mat-subheading-1 {
         margin:0!important;

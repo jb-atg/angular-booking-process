@@ -35,7 +35,18 @@ color:#fff!important;
   color:#fff!important;
 }
 }
+
   }
+
+  &.limited:not(.active) {
+  background: #bcc3fd;
+
+  .limited-text {
+    color:var(--warn-color);
+  }
+}
+
+
 
 
 .tile-info {
