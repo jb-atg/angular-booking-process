@@ -1,7 +1,7 @@
 <div class="scroll-content">
 	<div class=" filters mat-elevation-z2" innerAlign="spaceBetween middle">
-		<div innerAlign="center middle" >
-			<button mat-stroked-button class="mr-1">View Cabins</button>
+		<div innerAlign="center middle">
+			<button mat-stroked-button class="mr-1" (click)="openCabinDialog()">View Cabins</button>
 			<button mat-stroked-button>Promotion Information</button>
 		</div>
 		<div class="pl-1 pr-1" innerAlign="left middle">
@@ -39,7 +39,7 @@
 				</mat-form-field>
 
 				<mat-form-field *ngIf="filters.travellers.selectedOption > 2" appearance="outline" class="pr-1"
-					[class.filled]="filters.bedding.selectedOption">
+					[class.filled]="filters.bedding.selectedOption" (click)="openCabinDialog()">
 					<mat-label>Bedding</mat-label>
 					<input matInput readonly="true" [(ngModel)]="filters.bedding.selectedOptions">
 					<span matSuffix><i class="material-icons">open_in_new</i></span>
@@ -72,14 +72,11 @@
 
 	<div class="info-bar" innerAlign="spaceBetween middle">
 		<div class="mat-title pl-1 pt-1 pb-1">Showing results for two adults sharing a double room.</div>
-		<div>
-
-		</div>
 	</div>
 
 	<ng-container *ngFor="let month of months;let i = index; let even = even;" ;>
 		<app-departure-month [month]="month" [class.even]="even" (isActive)="setActive($event)"
-      [class.departure-selected]="departureSelected">
+			[class.departure-selected]="departureSelected">
 			<span class="mat-display-1 pl-1 pr-1">{{month.label}}</span><br>
 			<span>2020</span>
 		</app-departure-month>

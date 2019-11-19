@@ -1,4 +1,13 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from "@angular/material/dialog";
+
+import { CabinDialogComponent } from "./cabin-dialog/cabin-dialog.component";
+
+import { AssignBeddingComponent } from "./assign-bedding-dialog/assign-bedding-dialog.component";
 
 @Component({
   selector: "app-step-departures",
@@ -7,7 +16,7 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 })
 export class StepDeparturesComponent implements OnInit {
   @Output() isActive = new EventEmitter();
-  departureSelected:boolean = false;
+  departureSelected: boolean = false;
   months = [
     {
       index: 0,
@@ -103,14 +112,38 @@ export class StepDeparturesComponent implements OnInit {
     sort: { options: this.sort, selectedOption: undefined }
   };
 
-  logFilters() {
-    console.log(this.filters);
-  }
-
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
     this.generateDepartures();
+  }
+
+  openCabinDialog(): void {
+    let name = "abc";
+    const dialogRef = this.dialog.open(CabinDialogComponent, {
+      width: "250px",
+      data: { name: name }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      name = result;
+    });
+  }
+
+  openBeddingDialog(): void {
+    let name = "abc";
+    const dialogRef = this.dialog.open(AssignBeddingComponent, {
+      width: "250px",
+      data: { name: name }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      name = result;
+    });
+  }
+
+  logFilters() {
+    console.log(this.filters);
   }
 
   generateDepartures() {
@@ -192,7 +225,7 @@ export class StepDeparturesComponent implements OnInit {
       this.months[monthIndex].departures[departureIndex].active = true;
       this.departureSelected = true;
     } else {
-       this.departureSelected = false;
+      this.departureSelected = false;
     }
 
     this.isActive.emit(this.departureSelected);

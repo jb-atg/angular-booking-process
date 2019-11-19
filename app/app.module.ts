@@ -59,6 +59,8 @@ import { CabinSelectionComponent } from './step-trip-details/cabin-selection/cab
 import { AddOnSelectionComponent } from './step-trip-details/add-on-selection/add-on-selection.component';
 import { StepPassengerDetailsComponent } from './step-passenger-details/step-passenger-details.component';
 import { PassengerDetailsFormComponent } from './step-passenger-details/passenger-details-form/passenger-details-form.component';
+import { CabinDialogComponent } from './step-departures/cabin-dialog/cabin-dialog.component';
+import { AssignBeddingDialogComponent } from './step-departures/assign-bedding-dialog/assign-bedding-dialog.component';
 
 
 @NgModule({
@@ -112,9 +114,10 @@ import { PassengerDetailsFormComponent } from './step-passenger-details/passenge
     SatNativeDateModule,
     NgMarqueeModule 
   ],
-  entryComponents: [AppComponent],
-  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent, StepTripDetailsComponent, PromotionSelectionComponent, CabinSelectionComponent, AddOnSelectionComponent, StepPassengerDetailsComponent, PassengerDetailsFormComponent],
+  entryComponents: [AppComponent,CabinDialogComponent, AssignBeddingDialogComponent ],
+  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent, StepTripDetailsComponent, PromotionSelectionComponent, CabinSelectionComponent, AddOnSelectionComponent, StepPassengerDetailsComponent, PassengerDetailsFormComponent, CabinDialogComponent, AssignBeddingDialogComponent],
   bootstrap: [AppComponent],
   providers: []
+  
 })
 export class AppModule {}
