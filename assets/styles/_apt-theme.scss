@@ -254,6 +254,35 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   flex-wrap:nowrap!important;
 }
 
+      .number-picker-menu-item {
+        padding:0 .5rem;
+        display:flex!important;
+         .number-picker-label {
+           padding-right:.25rem;
+        }
+        input {
+          margin:0 .25rem;
+          max-width:4ch;
+          border-radius:4px;
+              box-shadow: inset 0px 0px 0px 0px #fff;
+    border: 1px solid var(--primary-color);
+    text-align: center;
+        }
+
+        .mat-icon-button {
+          width:24px;
+          height:24px;
+          line-height:24px;
+          .mat-button-wrapper {
+          width:24px;
+          height:24px;
+          line-height:24px;
+          }
+
+        }
+      }
+
+
 
 // Specific component overrides, pieces that are not in line with the general theming
 

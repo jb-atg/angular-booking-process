@@ -22,28 +22,34 @@
 				<span matSuffix><i class="material-icons">date_range</i></span>
 			</mat-form-field>
 
-			<mat-form-field appearance="outline" class="pr-1" [class.filled]="filters.bedding.selectedOption">
-				<mat-label>Passengers</mat-label>
-				<input matInput min="1" type="number" [(ngModel)]="filters.travellers.selectedOption">
+				<div #beddingField>
+					<mat-form-field  appearance="outline" class="pr-1"
+						[class.filled]="filters.bedding.selectedOption" [matMenuTriggerFor]="beddingMenu"
+						(menuOpened)="menuOpened(beddingField)">
+						<mat-label>Bedding</mat-label>
+						<input matInput readonly="true" [value]="filters.bedding.beddingDisplayValue">
+						<span matSuffix><i class="material-icons">single_bed</i></span>
+					</mat-form-field>
+				</div>
 
-		</mat-form-field>
 
-				<mat-form-field *ngIf="filters.travellers.selectedOption <= 2" appearance="outline" class="pr-1"
-					[class.filled]="filters.bedding.selectedOption">
-					<mat-label>Bedding</mat-label>
-					<mat-select [(ngModel)]="filters.bedding.selectedOption">
-						<mat-option *ngFor="let bedding of filters.bedding.options" [value]="bedding.value">
-							{{bedding.label}}
-						</mat-option>
-					</mat-select>
-				</mat-form-field>
 
-				<mat-form-field *ngIf="filters.travellers.selectedOption > 2" appearance="outline" class="pr-1"
-					[class.filled]="filters.bedding.selectedOption" (click)="openCabinDialog()">
-					<mat-label>Bedding</mat-label>
-					<input matInput readonly="true" [(ngModel)]="filters.bedding.selectedOptions">
-					<span matSuffix><i class="material-icons">open_in_new</i></span>
-				</mat-form-field>
+				<mat-menu #beddingMenu="matMenu">
+					<div *ngFor="let beddingOption of filters.bedding.options; let i = index;" mat-menu-item (click)="menuItemClick($event,i)"
+						innerAlign="spaceBetween middle" class="number-picker-menu-item" [ngStyle]="{'width.px': menuWidth }">
+						<span class="number-picker-label">{{beddingOption.label}}</span>
+						<div innerAlign="spaceBetween middle">
+							<button mat-icon-button (click)="menuItemClick($event,i, 'decrement')">
+                <i class="material-icons">remove_circle_outline</i>
+            </button>
+							<input min:0 type="number" [(ngModel)]="beddingOption.quantity" (ngModelChange)="updateBeddingDisplayValue()">
+							<button min="0" max="10" mat-icon-button (click)="menuItemClick($event,i, 'increment')">
+                <i class="material-icons">add_circle_outline</i>
+            </button>
+						</div>
+					</div>
+				</mat-menu>
+
 
 				<mat-form-field appearance="outline" class="pr-1"
 					[class.filled]="filters.cabins.selectedOptions?.length > 0">
@@ -71,7 +77,7 @@
 	</div>
 
 	<div class="info-bar" innerAlign="spaceBetween middle">
-		<div class="mat-title pl-1 pt-1 pb-1">Showing results for two adults sharing a double room.</div>
+		<div class="mat-title pl-1 pt-1 pb-1">Showing results for {{filters.bedding.totalPaxQuantity}} passengers sharing {{filters.bedding.beddingDisplayValue}}</div>
 	</div>
 
 	<ng-container *ngFor="let month of months;let i = index; let even = even;" ;>

@@ -1,13 +1,20 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  ViewChild
+} from "@angular/core";
 import {
   MatDialog,
   MatDialogRef,
   MAT_DIALOG_DATA
 } from "@angular/material/dialog";
+import { MatMenu } from "@angular/material/menu";
 
 import { CabinDialogComponent } from "./cabin-dialog/cabin-dialog.component";
 
-import { AssignBeddingComponent } from "./assign-bedding-dialog/assign-bedding-dialog.component";
+import { AssignBeddingDialogComponent } from "./assign-bedding-dialog/assign-bedding-dialog.component";
 
 @Component({
   selector: "app-step-departures",
@@ -16,6 +23,8 @@ import { AssignBeddingComponent } from "./assign-bedding-dialog/assign-bedding-d
 })
 export class StepDeparturesComponent implements OnInit {
   @Output() isActive = new EventEmitter();
+  @ViewChild("beddingMenu", { static: false }) beddingMenu: MatMenu;
+
   departureSelected: boolean = false;
   months = [
     {
@@ -85,9 +94,9 @@ export class StepDeparturesComponent implements OnInit {
   ];
 
   bedding = [
-    { value: 1, label: "Twin" },
-    { value: 2, label: "Double" },
-    { value: 3, label: "Single" }
+    { value: 1, label: "Twin", quantity: 0, paxQuantity: 2 },
+    { value: 2, label: "Double", quantity: 1, paxQuantity: 2 },
+    { value: 3, label: "Single", quantity: 0, paxQuantity: 1 }
   ];
 
   cabins = [
@@ -107,7 +116,11 @@ export class StepDeparturesComponent implements OnInit {
     dateRange: undefined,
     promotions: { options: this.promotions, selectedOptions: undefined },
     travellers: { selectedOption: 2 },
-    bedding: { options: this.bedding, selectedOption: 2, selectedOptions: " " },
+    bedding: {
+      options: this.bedding,
+      beddingDisplayValue: "1 " + "Double",
+      totalPaxQuantity:2,
+    },
     cabins: { options: this.cabins, selectedOptions: undefined },
     sort: { options: this.sort, selectedOption: undefined }
   };
@@ -132,7 +145,7 @@ export class StepDeparturesComponent implements OnInit {
 
   openBeddingDialog(): void {
     let name = "abc";
-    const dialogRef = this.dialog.open(AssignBeddingComponent, {
+    const dialogRef = this.dialog.open(AssignBeddingDialogComponent, {
       width: "250px",
       data: { name: name }
     });
@@ -229,5 +242,54 @@ export class StepDeparturesComponent implements OnInit {
     }
 
     this.isActive.emit(this.departureSelected);
+  }
+  incrementRoomQuanity(i) {
+    let quantity = this.filters.bedding.options[i].quantity;
+    if (quantity < 10) {
+      this.filters.bedding.options[i].quantity = quantity + 1;
+      this.updateBeddingDisplayValue();
+    }
+  }
+
+  decrementRoomQuanity(i) {
+    let quantity = this.filters.bedding.options[i].quantity;
+    if (quantity > 0) {
+      this.filters.bedding.options[i].quantity = quantity - 1;
+      this.updateBeddingDisplayValue();
+    }
+  }
+
+  menuWidth: number = 0;
+  menuOpened(field) {
+    this.menuWidth = field.firstElementChild.clientWidth - 64;
+  }
+
+  menuItemClick(event, index, action) {
+    event.stopPropagation();
+    if (action == "increment") {
+      this.incrementRoomQuanity(index);
+    } else if (action == "decrement") {
+      this.decrementRoomQuanity(index);
+    }
+  }
+
+  updateBeddingDisplayValue() {
+    let displayValue: string = "";
+    let totalPaxQuantity: number = 0;
+    let roomLabel: string = this.filters.bedding.options.some(option => {return  option.quantity > 1 })? ' rooms.':' room.' ;
+    let beddingOptions = this.filters.bedding.options.filter(beddingOption => {if (beddingOption.quantity > 0) {return beddingOption} });
+    console.log(beddingOptions);
+    beddingOptions.forEach((beddingOption, index) => {
+        displayValue =
+          displayValue +
+          beddingOption.quantity +
+          " " +
+          beddingOption.label +
+          (index == beddingOptions.length - 1 ? roomLabel : (index == beddingOptions.length - 2? ' & ': ', '));
+
+          totalPaxQuantity = totalPaxQuantity + (beddingOption.quantity * beddingOption.paxQuantity);
+    });
+    this.filters.bedding.beddingDisplayValue = displayValue;
+    this.filters.bedding.totalPaxQuantity = totalPaxQuantity;
   }
 }
