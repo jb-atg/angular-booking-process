@@ -165,6 +165,7 @@ export class StepDeparturesComponent implements OnInit {
       let i;
       for (i = 0; i < numberOfDepartures; i++) {
         let departure = {
+          index:i,
           year: 2020,
           month: month.index,
           begin: undefined,

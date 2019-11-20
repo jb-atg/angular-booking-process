@@ -4,7 +4,7 @@
 <div class="drag-scroll-wrapper">
 	<drag-scroll #dragScroll  [drag-scroll-disabled]="mouseWheel" [drag-scroll-y-disabled]="true" [snap-disabled]="true" scrollbar-hidden="true"
 		(reachesLeftBound)="reachLeft($event)" (reachesRightBound)="reachRight($event)" class="no-select">
-		<app-departure-slot *ngFor="let dep of month.departures; let even = even; let i = index;" drag-scroll-item [index]="i"
+		<app-departure-slot *ngFor="let dep of month.departures; let even = even; let i = index;" drag-scroll-item
 			[departure]="dep" (isActive)="setActive($event)"></app-departure-slot>
 	</drag-scroll>
 	<button *ngIf="!hasReachedLeft" class="move-left" mat-icon-button (click)="dragScroll.moveLeft()">

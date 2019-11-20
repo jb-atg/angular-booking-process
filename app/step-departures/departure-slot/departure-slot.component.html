@@ -1,5 +1,5 @@
 <div class="tile" (mousedown)="!departure.active ? activate(): undefined"
-	[class.active]="departure.active" [class.limited]="departure.month.id == 1">
+	[class.active]="departure.active" [class.limited]="departure.month == 1 && departure.index == 0">
 	<div class="w-100">
 		<div innerAlign="spaceBetween top">
 			<div innerAlign="left middle" class="mat-headline">
@@ -12,7 +12,7 @@
 			<i (mousedown)="deactivate()" *ngIf="departure.active" class="material-icons md-36 info">cancel</i>
 
 		</div>
-    <span *ngIf="departure.month.id == 1" class="limited-text">*Limited Availability*</span>
+    <span *ngIf="departure.month == 1 && departure.index == 0" class="limited-text">*Limited Availability*</span>
 		<div class="tile-line pt-1 pb-1" innerAlign="left middle">
 			<span *ngIf="departure.promotions.length == 0" class="no-promotions">No Promotions Available</span>
 			<div class="promos" [class.active]="departure.active">

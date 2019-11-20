@@ -15,7 +15,6 @@ import {
 })
 export class DepartureSlotComponent implements OnInit, OnChanges {
   @Input() departure;
-  @Input() index;
   @Output() isActive = new EventEmitter();
   constructor() {}
 
@@ -56,7 +55,7 @@ export class DepartureSlotComponent implements OnInit, OnChanges {
   }
 
   activate() {
-    this.isActive.emit(this.index);
+    this.isActive.emit(this.departure.index);
   }
 
   deactivate() {
