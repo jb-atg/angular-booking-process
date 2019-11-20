@@ -7,11 +7,13 @@ grid-row-gap: 0px;
 background:rgba(#fff,.75);
 width:100%;
 
-    &::-webkit-scrollbar {
-    display: none;
-}
 &.even {
   background:rgba(#f3f3f3,.75);
+}
+
+app-carousel {
+      width:calc(100vw - 100px - 1rem - 16px);
+  max-width:calc(1600px - 100px - 16px);
 }
 
 .drag-scroll-wrapper {

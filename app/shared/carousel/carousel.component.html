@@ -1,6 +1,6 @@
-<cdk-virtual-scroll-viewport #viewport orientation="horizontal" itemSize="348"
+<cdk-virtual-scroll-viewport #viewport orientation="horizontal" [itemSize]="itemWidth" [ngStyle]="{'min-height.px': itemMinHeight}"
 	(scrolledIndexChange)="scrolledIndexChange($event)">
-	<div *cdkVirtualFor="let item of items; " class="item">{{item}}</div>
+	<div *cdkVirtualFor="let item of items; " [ngStyle]="{'width.px': itemWidth}"><ng-container *ngTemplateOutlet="itemTemplate; context: {item : item}"></ng-container></div>
 </cdk-virtual-scroll-viewport>
 <button *ngIf="currentIndex > 0" class="move-left" mat-icon-button (click)="viewport.scrollToIndex(currentIndex - 1, 'smooth')">
   <i class="material-icons">chevron_left</i>

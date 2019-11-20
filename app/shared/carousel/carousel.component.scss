@@ -2,13 +2,6 @@
 app-carousel {
  display:block;
   position:relative;
-cdk-virtual-scroll-viewport {
-  min-height: 200px;
-  width: 100%;
-  border: 1px solid black;
-  position:relative;
-  
-}
 
 &:hover {
   .move-left,.move-right {
@@ -40,15 +33,20 @@ cdk-virtual-scroll-viewport {
     right:1rem;
 }
 }
+cdk-virtual-scroll-viewport {
+  width: 100%;
+  position:relative;
+  contain: unset;
+  overflow-x: scroll;
+}
 
 cdk-virtual-scroll-viewport .cdk-virtual-scroll-content-wrapper {
   display: flex;
   flex-direction: row;
+      align-items: center;
+          position: relative;
+            contain: unset;
 }
 
-cdk-virtual-scroll-viewport .item {
-  width: 348px;
-  height: 100%;
-}
 
 }

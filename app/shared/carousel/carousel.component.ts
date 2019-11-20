@@ -2,7 +2,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   OnInit,
-  ViewEncapsulation
+  ViewEncapsulation,
+  Input
 } from "@angular/core";
 
 @Component({
@@ -13,18 +14,18 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CarouselComponent implements OnInit {
-  items = Array.from({ length: 100000 }).map((_, i) => `Item #${i}`);
+  @Input('items') items;
+  @Input() itemTemplate;
+  @Input('itemWidth') itemWidth: number;
+  @Input('itemMinHeight') itemMinHeight: number;
   currentIndex: number = 0;
+
   constructor() {}
 
   ngOnInit() {}
 
   scrolledIndexChange(index) {
    this.currentIndex = index;
-  }
-
-  showNextButton(offset) {
-console.log(offset);
   }
 
 }
