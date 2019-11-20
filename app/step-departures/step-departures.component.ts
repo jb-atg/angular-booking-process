@@ -119,7 +119,7 @@ export class StepDeparturesComponent implements OnInit {
     bedding: {
       options: this.bedding,
       beddingDisplayValue: "1 " + "Double " + "Room",
-      totalPaxQuantity:2,
+      totalPaxQuantity: 2
     },
     cabins: { options: this.cabins, selectedOptions: undefined },
     sort: { options: this.sort, selectedOption: undefined }
@@ -165,7 +165,7 @@ export class StepDeparturesComponent implements OnInit {
       let i;
       for (i = 0; i < numberOfDepartures; i++) {
         let departure = {
-          index:i,
+          index: undefined,
           year: 2020,
           month: month.index,
           begin: undefined,
@@ -187,6 +187,11 @@ export class StepDeparturesComponent implements OnInit {
           month.departures = month.departures.sort(
             this.sortDeparturesByDate("begin")
           );
+          this.months.forEach(month => {
+            month.departures.forEach((departure, index) => {
+              departure.index = index;
+            });
+          });
         }
       }
     });
@@ -277,18 +282,30 @@ export class StepDeparturesComponent implements OnInit {
   updateBeddingDisplayValue() {
     let displayValue: string = "";
     let totalPaxQuantity: number = 0;
-    let roomLabel: string = this.filters.bedding.options.some(option => {return  option.quantity > 1 })? ' rooms.':' room.' ;
-    let beddingOptions = this.filters.bedding.options.filter(beddingOption => {if (beddingOption.quantity > 0) {return beddingOption} });
-    console.log(beddingOptions);
+    let roomLabel: string = this.filters.bedding.options.some(option => {
+      return option.quantity > 1;
+    })
+      ? " rooms."
+      : " room.";
+    let beddingOptions = this.filters.bedding.options.filter(beddingOption => {
+      if (beddingOption.quantity > 0) {
+        return beddingOption;
+      }
+    });
     beddingOptions.forEach((beddingOption, index) => {
-        displayValue =
-          displayValue +
-          beddingOption.quantity +
-          " " +
-          beddingOption.label +
-          (index == beddingOptions.length - 1 ? roomLabel : (index == beddingOptions.length - 2? ' & ': ', '));
+      displayValue =
+        displayValue +
+        beddingOption.quantity +
+        " " +
+        beddingOption.label +
+        (index == beddingOptions.length - 1
+          ? roomLabel
+          : index == beddingOptions.length - 2
+          ? " & "
+          : ", ");
 
-          totalPaxQuantity = totalPaxQuantity + (beddingOption.quantity * beddingOption.paxQuantity);
+      totalPaxQuantity =
+        totalPaxQuantity + beddingOption.quantity * beddingOption.paxQuantity;
     });
     this.filters.bedding.beddingDisplayValue = displayValue;
     this.filters.bedding.totalPaxQuantity = totalPaxQuantity;
