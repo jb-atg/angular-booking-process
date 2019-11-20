@@ -1,0 +1,9 @@
+<cdk-virtual-scroll-viewport orientation="horizontal" itemSize="348" (scrolledIndexChange)="scrolledIndexChange($event)">
+	<div *cdkVirtualFor="let item of items; " class="example-item">{{item}}</div>
+</cdk-virtual-scroll-viewport>
+<button  class="move-left" mat-icon-button (click)="moveLeft()">
+  <i class="material-icons">chevron_left</i>
+  </button>
+
+<button class="move-right"  mat-icon-button (click)="moveRight()">
+  </button>

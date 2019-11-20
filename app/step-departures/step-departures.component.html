@@ -79,6 +79,8 @@
 		<div class="mat-title pl-1 pt-1 pb-1">Showing results for {{filters.bedding.totalPaxQuantity}} passengers sharing {{filters.bedding.beddingDisplayValue}}</div>
 	</div>
 
+  <app-carousel></app-carousel>
+
 	<ng-container *ngFor="let month of months;let i = index; let even = even;" ;>
 		<app-departure-month [month]="month" [class.even]="even" (isActive)="setActive($event)"
 			[class.departure-selected]="departureSelected">

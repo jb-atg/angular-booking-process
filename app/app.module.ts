@@ -6,6 +6,7 @@ import { CdkTreeModule } from "@angular/cdk/tree";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -113,7 +114,8 @@ import { CarouselComponent } from './shared/carousel/carousel.component';
     DragScrollModule,
     SatDatepickerModule,
     SatNativeDateModule,
-    NgMarqueeModule 
+    NgMarqueeModule,
+    ScrollingModule
   ],
   entryComponents: [AppComponent,CabinDialogComponent, AssignBeddingDialogComponent ],
   declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent, StepTripDetailsComponent, PromotionSelectionComponent, CabinSelectionComponent, AddOnSelectionComponent, StepPassengerDetailsComponent, PassengerDetailsFormComponent, CabinDialogComponent, AssignBeddingDialogComponent, CarouselComponent],
