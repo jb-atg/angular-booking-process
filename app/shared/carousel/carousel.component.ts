@@ -9,6 +9,7 @@ import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@a
 })
 export class CarouselComponent implements OnInit {
   items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
+  currentIndex:number = 0;
   constructor() { }
 
   ngOnInit() {
