@@ -135,6 +135,7 @@ export class StepDeparturesComponent implements OnInit {
     let name = "abc";
     const dialogRef = this.dialog.open(CabinDialogComponent, {
       width: window.innerWidth < 767 ? window.innerWidth - 32 + 'px': window.innerWidth/1.5 + 'px',
+      height: window.innerHeight - 64 + 'px',
       data: { name: name }
     });
 
