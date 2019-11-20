@@ -118,7 +118,7 @@ export class StepDeparturesComponent implements OnInit {
     travellers: { selectedOption: 2 },
     bedding: {
       options: this.bedding,
-      beddingDisplayValue: "1 " + "Double",
+      beddingDisplayValue: "1 " + "Double " + "Room",
       totalPaxQuantity:2,
     },
     cabins: { options: this.cabins, selectedOptions: undefined },
