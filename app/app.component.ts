@@ -14,7 +14,6 @@ export class AppComponent {
 @ViewChild('stepper', {static: false}) stepper:any;
 
 departureSelected: boolean =false;
-
 selectedStep:number = 0;
 
 nextStep() {
