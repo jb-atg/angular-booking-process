@@ -14,6 +14,7 @@ import { MatMenu } from "@angular/material/menu";
 
 import { CabinDialogComponent } from "./cabin-dialog/cabin-dialog.component";
 
+
 import { AssignBeddingDialogComponent } from "./assign-bedding-dialog/assign-bedding-dialog.component";
 
 @Component({
@@ -136,18 +137,6 @@ export class StepDeparturesComponent implements OnInit {
     const dialogRef = this.dialog.open(CabinDialogComponent, {
       width: window.innerWidth < 767 ? window.innerWidth - 32 + 'px': window.innerWidth/1.5 + 'px',
       height: window.innerHeight - 64 + 'px',
-      data: { name: name }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      name = result;
-    });
-  }
-
-  openBeddingDialog(): void {
-    let name = "abc";
-    const dialogRef = this.dialog.open(AssignBeddingDialogComponent, {
-      width: "250px",
       data: { name: name }
     });
 

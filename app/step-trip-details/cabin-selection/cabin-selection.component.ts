@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { CabinDialogComponent } from "../../step-departures/cabin-dialog/cabin-dialog.component";
 
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from "@angular/material/dialog";
 @Component({
   selector: 'app-cabin-selection',
   templateUrl: './cabin-selection.component.html',
@@ -17,9 +23,25 @@ export class CabinSelectionComponent implements OnInit {
     { value: 8, label: "T" }
   ];
 
-  constructor() {}
+  constructor(public dialog: MatDialog ) {}
 
   ngOnInit() {}
+
+    openCabinDialog(): void {
+    let name = "abc";
+    const dialogRef = this.dialog.open(CabinDialogComponent, {
+      width:
+        window.innerWidth < 767
+          ? window.innerWidth - 32 + "px"
+          : window.innerWidth / 1.5 + "px",
+      height: window.innerHeight - 64 + "px",
+      data: { name: name }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      name = result;
+    });
+  }
 
   activateCabin(i) {
       let toggle = this.cabins[i].active ? false : true ;
