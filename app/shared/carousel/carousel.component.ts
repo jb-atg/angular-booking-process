@@ -20,8 +20,7 @@ export class CarouselComponent implements OnInit {
   ngOnInit() {}
 
   scrolledIndexChange(index) {
-    console.log(index);
+   this.currentIndex = index;
   }
 
-  // scrollToIndex()
 }
