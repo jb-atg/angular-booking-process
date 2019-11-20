@@ -61,6 +61,7 @@ import { StepPassengerDetailsComponent } from './step-passenger-details/step-pas
 import { PassengerDetailsFormComponent } from './step-passenger-details/passenger-details-form/passenger-details-form.component';
 import { CabinDialogComponent } from './step-departures/cabin-dialog/cabin-dialog.component';
 import { AssignBeddingDialogComponent } from './step-departures/assign-bedding-dialog/assign-bedding-dialog.component';
+import { CarouselComponent } from './shared/carousel/carousel.component';
 
 
 @NgModule({
@@ -115,7 +116,7 @@ import { AssignBeddingDialogComponent } from './step-departures/assign-bedding-d
     NgMarqueeModule 
   ],
   entryComponents: [AppComponent,CabinDialogComponent, AssignBeddingDialogComponent ],
-  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent, StepTripDetailsComponent, PromotionSelectionComponent, CabinSelectionComponent, AddOnSelectionComponent, StepPassengerDetailsComponent, PassengerDetailsFormComponent, CabinDialogComponent, AssignBeddingDialogComponent],
+  declarations: [AppComponent, StepDeparturesComponent, PromoBadgeComponent, DepartureMonthComponent, DepartureSlotComponent, StepTripDetailsComponent, PromotionSelectionComponent, CabinSelectionComponent, AddOnSelectionComponent, StepPassengerDetailsComponent, PassengerDetailsFormComponent, CabinDialogComponent, AssignBeddingDialogComponent, CarouselComponent],
   bootstrap: [AppComponent],
   providers: []
   
