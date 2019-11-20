@@ -23,4 +23,8 @@ export class CarouselComponent implements OnInit {
    this.currentIndex = index;
   }
 
+  showNextButton(offset) {
+console.log(offset);
+  }
+
 }
